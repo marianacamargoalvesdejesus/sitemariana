@@ -6,387 +6,391 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&amp;family=DM+Sans:wght@300;400;500&amp;display=swap" rel="stylesheet">
 <style>
-  :root {
-    --violet: #5E17EB;
-    --violet-light: #7B3FF5;
-    --violet-dark: #3D0DB3;
-    --violet-muted: #EDE8FD;
-    --white: #FAFAFA;
-    --off-white: #F4F0FF;
-    --black: #0A0A0A;
-    --gray: #4A4A4A;
-    --gray-light: #8A8A8A;
-    --border: rgba(94, 23, 235, 0.15);
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--white);
-    color: var(--black);
-    overflow-x: hidden;
-  }
+  :root {
+    --violet: #5E17EB;
+    --violet-light: #7B3FF5;
+    --violet-dark: #3D0DB3;
+    --violet-muted: #EDE8FD;
+    --white: #FAFAFA;
+    --off-white: #F4F0FF;
+    --black: #0A0A0A;
+    --gray: #4A4A4A;
+    --gray-light: #8A8A8A;
+    --border: rgba(94, 23, 235, 0.15);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--black);
+    overflow-x: hidden;
+  }
 
-  /* ── NAV ─────────────────────────────────────── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-    padding: 0 5%; height: 70px;
-    display: flex; align-items: center; justify-content: space-between;
-    background: rgba(250,250,250,0.88);
-    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border); transition: all 0.3s;
-  }
-  nav.scrolled { height: 58px; background: rgba(250,250,250,0.97); box-shadow: 0 2px 30px rgba(94,23,235,0.08); }
-  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; color: var(--violet); letter-spacing: 0.02em; text-decoration: none; }
-  .nav-logo span { color: var(--black); }
-  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-  .nav-links a { text-decoration: none; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--black); position: relative; padding-bottom: 3px; transition: color 0.2s; }
-  .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1.5px; background: var(--violet); transition: width 0.3s ease; }
-  .nav-links a:hover { color: var(--violet); }
-  .nav-links a:hover::after { width: 100%; }
-  .nav-admin-btn { font-size: 0.75rem; padding: 7px 18px; border: 1.5px solid var(--violet); border-radius: 100px; color: var(--violet); background: transparent; font-family: 'DM Sans', sans-serif; font-weight: 500; letter-spacing: 0.05em; cursor: pointer; transition: all 0.25s; }
-  .nav-admin-btn:hover { background: var(--violet); color: white; }
+  /* ── NAV ─────────────────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    padding: 0 5%; height: 70px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(250,250,250,0.88);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border); transition: all 0.3s;
+  }
+  nav.scrolled { height: 58px; background: rgba(250,250,250,0.97); box-shadow: 0 2px 30px rgba(94,23,235,0.08); }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; color: var(--violet); letter-spacing: 0.02em; text-decoration: none; }
+  .nav-logo span { color: var(--black); }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a { text-decoration: none; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--black); position: relative; padding-bottom: 3px; transition: color 0.2s; }
+  .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1.5px; background: var(--violet); transition: width 0.3s ease; }
+  .nav-links a:hover { color: var(--violet); }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-admin-btn { font-size: 0.75rem; padding: 7px 18px; border: 1.5px solid var(--violet); border-radius: 100px; color: var(--violet); background: transparent; font-family: 'DM Sans', sans-serif; font-weight: 500; letter-spacing: 0.05em; cursor: pointer; transition: all 0.25s; }
+  .nav-admin-btn:hover { background: var(--violet); color: white; }
 
-  /* ── HERO ────────────────────────────────────── */
-  #home { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; background: var(--white); padding-top: 70px; }
-  .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 70% 40%, rgba(94,23,235,0.07) 0%, transparent 70%), radial-gradient(ellipse 40% 50% at 10% 80%, rgba(94,23,235,0.05) 0%, transparent 60%); }
-  .hero-grain { position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.025'/%3E%3C/svg%3E"); opacity: 0.4; }
-  .hero-content { position: relative; z-index: 2; padding: 0 5%; max-width: 1300px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-  .hero-tag { display: inline-flex; align-items: center; gap: 8px; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--violet); font-weight: 500; margin-bottom: 24px; background: var(--violet-muted); padding: 6px 16px; border-radius: 100px; }
-  .hero-tag::before { content: ''; width: 6px; height: 6px; background: var(--violet); border-radius: 50%; animation: pulse 2s infinite; }
-  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.3)} }
-  .hero-name { font-family: 'Cormorant Garamond', serif; font-size: clamp(3.5rem,6vw,5.5rem); font-weight: 300; line-height: 1.05; color: var(--black); margin-bottom: 8px; }
-  .hero-name em { font-style: italic; color: var(--violet); }
-  .hero-subtitle { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.1rem,2vw,1.4rem); font-weight: 300; font-style: italic; color: var(--gray); margin-bottom: 28px; letter-spacing: 0.02em; }
-  .hero-desc { font-size: 0.95rem; line-height: 1.8; color: var(--gray); max-width: 440px; margin-bottom: 40px; }
-  .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; }
-  .btn-primary { padding: 14px 36px; background: var(--violet); color: white; border: none; border-radius: 100px; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.04em; cursor: pointer; transition: all 0.3s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
-  .btn-primary:hover { background: var(--violet-dark); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(94,23,235,0.35); }
-  .btn-secondary { padding: 14px 36px; background: transparent; color: var(--black); border: 1.5px solid rgba(0,0,0,0.15); border-radius: 100px; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.04em; cursor: pointer; transition: all 0.3s; text-decoration: none; }
-  .btn-secondary:hover { border-color: var(--violet); color: var(--violet); transform: translateY(-2px); }
-  .hero-visual { position: relative; }
-  .hero-photo-frame { position: relative; width: 100%; aspect-ratio: 3/4; border-radius: 40% 60% 55% 45%/45% 40% 60% 55%; overflow: hidden; background: var(--violet-muted); border: 3px solid rgba(94,23,235,0.12); }
-  .hero-photo-frame::before { content: ''; position: absolute; inset: -3px; border-radius: inherit; background: linear-gradient(135deg,rgba(94,23,235,0.3),transparent 50%,rgba(94,23,235,0.1)); z-index: 1; }
-  .hero-photo-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; color: var(--violet); font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1rem; text-align: center; padding: 20px; }
-  .hero-photo-frame img { width: 100%; height: 100%; object-fit: cover; }
-  .hero-deco-1 { position: absolute; top: -20px; right: -20px; width: 100px; height: 100px; border: 1.5px solid var(--violet); border-radius: 50%; opacity: 0.2; animation: spin 20s linear infinite; }
-  .hero-deco-2 { position: absolute; bottom: -30px; left: -15px; width: 60px; height: 60px; background: var(--violet); border-radius: 50%; opacity: 0.08; }
-  @keyframes spin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
-  .hero-stats { position: absolute; bottom: 30px; left: -30px; display: flex; gap: 12px; z-index: 3; }
-  .stat-pill { background: white; border: 1px solid var(--border); border-radius: 20px; padding: 10px 18px; box-shadow: 0 8px 30px rgba(94,23,235,0.12); text-align: center; }
-  .stat-pill .num { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; color: var(--violet); display: block; }
-  .stat-pill .label { font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray-light); }
+  /* ── HERO ────────────────────────────────────── */
+  #home { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; background: var(--white); padding-top: 70px; }
+  .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 70% 40%, rgba(94,23,235,0.07) 0%, transparent 70%), radial-gradient(ellipse 40% 50% at 10% 80%, rgba(94,23,235,0.05) 0%, transparent 60%); }
+  .hero-grain { position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.025'/%3E%3C/svg%3E"); opacity: 0.4; }
+  .hero-content { position: relative; z-index: 2; padding: 0 5%; max-width: 1300px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .hero-tag { display: inline-flex; align-items: center; gap: 8px; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--violet); font-weight: 500; margin-bottom: 24px; background: var(--violet-muted); padding: 6px 16px; border-radius: 100px; }
+  .hero-tag::before { content: ''; width: 6px; height: 6px; background: var(--violet); border-radius: 50%; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.3)} }
+  .hero-name { font-family: 'Cormorant Garamond', serif; font-size: clamp(3.5rem,6vw,5.5rem); font-weight: 300; line-height: 1.05; color: var(--black); margin-bottom: 8px; }
+  .hero-name em { font-style: italic; color: var(--violet); }
+  .hero-subtitle { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.1rem,2vw,1.4rem); font-weight: 300; font-style: italic; color: var(--gray); margin-bottom: 28px; letter-spacing: 0.02em; }
+  .hero-desc { font-size: 0.95rem; line-height: 1.8; color: var(--gray); max-width: 440px; margin-bottom: 40px; }
+  .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-primary { padding: 14px 36px; background: var(--violet); color: white; border: none; border-radius: 100px; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.04em; cursor: pointer; transition: all 0.3s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+  .btn-primary:hover { background: var(--violet-dark); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(94,23,235,0.35); }
+  .btn-secondary { padding: 14px 36px; background: transparent; color: var(--black); border: 1.5px solid rgba(0,0,0,0.15); border-radius: 100px; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.04em; cursor: pointer; transition: all 0.3s; text-decoration: none; }
+  .btn-secondary:hover { border-color: var(--violet); color: var(--violet); transform: translateY(-2px); }
+  .hero-visual { position: relative; }
+  .hero-photo-frame { position: relative; width: 100%; aspect-ratio: 3/4; border-radius: 40% 60% 55% 45%/45% 40% 60% 55%; overflow: hidden; background: var(--violet-muted); border: 3px solid rgba(94,23,235,0.12); }
+  .hero-photo-frame::before { content: ''; position: absolute; inset: -3px; border-radius: inherit; background: linear-gradient(135deg,rgba(94,23,235,0.3),transparent 50%,rgba(94,23,235,0.1)); z-index: 1; }
+  .hero-photo-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; color: var(--violet); font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1rem; text-align: center; padding: 20px; }
+  .hero-photo-frame img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-deco-1 { position: absolute; top: -20px; right: -20px; width: 100px; height: 100px; border: 1.5px solid var(--violet); border-radius: 50%; opacity: 0.2; animation: spin 20s linear infinite; }
+  .hero-deco-2 { position: absolute; bottom: -30px; left: -15px; width: 60px; height: 60px; background: var(--violet); border-radius: 50%; opacity: 0.08; }
+  @keyframes spin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+  .hero-stats { position: absolute; bottom: 30px; left: -30px; display: flex; gap: 12px; z-index: 3; }
+  .stat-pill { background: white; border: 1px solid var(--border); border-radius: 20px; padding: 10px 18px; box-shadow: 0 8px 30px rgba(94,23,235,0.12); text-align: center; }
+  .stat-pill .num { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; color: var(--violet); display: block; }
+  .stat-pill .label { font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray-light); }
 
-  /* ── SECTIONS ────────────────────────────────── */
-  section { position: relative; }
-  .section-inner { max-width: 1300px; margin: 0 auto; padding: 120px 5%; }
-  .section-tag { display: inline-block; font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--violet); font-weight: 500; margin-bottom: 16px; position: relative; padding-left: 20px; }
-  .section-tag::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 12px; height: 1.5px; background: var(--violet); }
-  .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem,4vw,3.5rem); font-weight: 300; line-height: 1.15; color: var(--black); margin-bottom: 16px; }
-  .section-title em { font-style: italic; color: var(--violet); }
-  .section-desc { font-size: 1rem; line-height: 1.8; color: var(--gray); max-width: 560px; margin-bottom: 60px; }
-  .divider { width: 60px; height: 2px; background: linear-gradient(90deg,var(--violet),transparent); margin: 20px 0 40px; }
+  /* ── SECTIONS ────────────────────────────────── */
+  section { position: relative; }
+  .section-inner { max-width: 1300px; margin: 0 auto; padding: 120px 5%; }
+  .section-tag { display: inline-block; font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--violet); font-weight: 500; margin-bottom: 16px; position: relative; padding-left: 20px; }
+  .section-tag::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 12px; height: 1.5px; background: var(--violet); }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem,4vw,3.5rem); font-weight: 300; line-height: 1.15; color: var(--black); margin-bottom: 16px; }
+  .section-title em { font-style: italic; color: var(--violet); }
+  .section-desc { font-size: 1rem; line-height: 1.8; color: var(--gray); max-width: 560px; margin-bottom: 60px; }
+  .divider { width: 60px; height: 2px; background: linear-gradient(90deg,var(--violet),transparent); margin: 20px 0 40px; }
 
-  /* ── SOBRE ───────────────────────────────────── */
-  #sobre { background: var(--white); }
-  .sobre-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: start; }
-  .sobre-photo { width: 100%; aspect-ratio: 4/5; border-radius: 4px 60px 4px 60px; overflow: hidden; background: var(--violet-muted); border: 2px solid var(--border); margin-bottom: 24px; position: relative; }
-  .sobre-photo img { width: 100%; height: 100%; object-fit: cover; }
-  .sobre-photo-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; color: var(--violet); font-family: 'Cormorant Garamond', serif; font-style: italic; text-align: center; padding: 20px; }
-  .sobre-quote { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-style: italic; line-height: 1.7; color: var(--violet-dark); border-left: 3px solid var(--violet); padding-left: 20px; margin-top: 16px; }
-  .sobre-bio { font-size: 1rem; line-height: 1.9; color: var(--gray); margin-bottom: 50px; }
+  /* ── SOBRE ───────────────────────────────────── */
+  #sobre { background: var(--white); }
+  .sobre-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: start; }
+  .sobre-photo { width: 100%; aspect-ratio: 4/5; border-radius: 4px 60px 4px 60px; overflow: hidden; background: var(--violet-muted); border: 2px solid var(--border); margin-bottom: 24px; position: relative; }
+  .sobre-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .sobre-photo-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; color: var(--violet); font-family: 'Cormorant Garamond', serif; font-style: italic; text-align: center; padding: 20px; }
+  .sobre-quote { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-style: italic; line-height: 1.7; color: var(--violet-dark); border-left: 3px solid var(--violet); padding-left: 20px; margin-top: 16px; }
+  .sobre-bio { font-size: 1rem; line-height: 1.9; color: var(--gray); margin-bottom: 50px; }
 
-  /* ── ACCORDION ───────────────────────────────── */
-  .accordion-section { margin-bottom: 12px; }
-  .accordion-header { display: flex; justify-content: space-between; align-items: center; padding: 18px 22px; background: var(--white); border: 1.5px solid var(--border); border-radius: 12px; cursor: pointer; transition: all 0.25s; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em; color: var(--black); }
-  .accordion-header:hover { border-color: var(--violet); background: var(--violet-muted); color: var(--violet); }
-  .accordion-header.active { border-color: var(--violet); background: var(--violet); color: white; border-radius: 12px 12px 0 0; }
-  .accordion-icon { font-size: 1.2rem; transition: transform 0.3s; }
-  .accordion-header.active .accordion-icon { transform: rotate(45deg); }
-  .accordion-body { display: none; padding: 20px 22px 24px; border: 1.5px solid var(--violet); border-top: none; border-radius: 0 0 12px 12px; background: var(--off-white); }
-  .accordion-body.open { display: block; }
+  /* ── ACCORDION ───────────────────────────────── */
+  .accordion-section { margin-bottom: 12px; }
+  .accordion-header { display: flex; justify-content: space-between; align-items: center; padding: 18px 22px; background: var(--white); border: 1.5px solid var(--border); border-radius: 12px; cursor: pointer; transition: all 0.25s; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em; color: var(--black); }
+  .accordion-header:hover { border-color: var(--violet); background: var(--violet-muted); color: var(--violet); }
+  .accordion-header.active { border-color: var(--violet); background: var(--violet); color: white; border-radius: 12px 12px 0 0; }
+  .accordion-icon { font-size: 1.2rem; transition: transform 0.3s; }
+  .accordion-header.active .accordion-icon { transform: rotate(45deg); }
+  .accordion-body { display: none; padding: 20px 22px 24px; border: 1.5px solid var(--violet); border-top: none; border-radius: 0 0 12px 12px; background: var(--off-white); }
+  .accordion-body.open { display: block; }
 
-  /* ── FORMAÇÃO ────────────────────────────────── */
-  .formacao-item { display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--border); }
-  .formacao-item:last-child { border-bottom: none; }
-  .formacao-icon { width: 42px; height: 42px; background: var(--violet-muted); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
-  .formacao-info h4 { font-size: 0.9rem; font-weight: 500; color: var(--black); margin-bottom: 4px; }
-  .formacao-info p { font-size: 0.8rem; color: var(--gray-light); }
-  .formacao-info .period { font-size: 0.75rem; color: var(--violet); font-weight: 500; background: var(--violet-muted); padding: 2px 10px; border-radius: 100px; display: inline-block; margin-top: 4px; }
+  /* ── FORMAÇÃO ────────────────────────────────── */
+  .formacao-item { display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--border); }
+  .formacao-item:last-child { border-bottom: none; }
+  .formacao-icon { width: 42px; height: 42px; background: var(--violet-muted); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+  .formacao-info h4 { font-size: 0.9rem; font-weight: 500; color: var(--black); margin-bottom: 4px; }
+  .formacao-info p { font-size: 0.8rem; color: var(--gray-light); }
+  .formacao-info .period { font-size: 0.75rem; color: var(--violet); font-weight: 500; background: var(--violet-muted); padding: 2px 10px; border-radius: 100px; display: inline-block; margin-top: 4px; }
 
-  /* ── EXPERIÊNCIAS ────────────────────────────── */
-  .exp-timeline { position: relative; }
-  .exp-timeline::before { content: ''; position: absolute; left: 18px; top: 0; bottom: 0; width: 1.5px; background: var(--border); }
-  .exp-item { display: flex; gap: 20px; padding: 16px 0; position: relative; }
-  .exp-dot { width: 38px; height: 38px; flex-shrink: 0; background: white; border: 2px solid var(--violet); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; color: var(--violet); z-index: 1; }
-  .exp-content h4 { font-size: 0.9rem; font-weight: 500; color: var(--black); margin-bottom: 4px; }
-  .exp-content .place { font-size: 0.8rem; color: var(--gray); margin-bottom: 4px; }
-  .exp-content .period { font-size: 0.72rem; color: var(--violet); font-weight: 500; background: var(--violet-muted); padding: 2px 10px; border-radius: 100px; display: inline-block; margin-bottom: 8px; }
-  .exp-content p { font-size: 0.82rem; color: var(--gray-light); line-height: 1.6; }
+  /* ── EXPERIÊNCIAS ────────────────────────────── */
+  .exp-timeline { position: relative; }
+  .exp-timeline::before { content: ''; position: absolute; left: 18px; top: 0; bottom: 0; width: 1.5px; background: var(--border); }
+  .exp-item { display: flex; gap: 20px; padding: 16px 0; position: relative; }
+  .exp-dot { width: 38px; height: 38px; flex-shrink: 0; background: white; border: 2px solid var(--violet); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; color: var(--violet); z-index: 1; }
+  .exp-content h4 { font-size: 0.9rem; font-weight: 500; color: var(--black); margin-bottom: 4px; }
+  .exp-content .place { font-size: 0.8rem; color: var(--gray); margin-bottom: 4px; }
+  .exp-content .period { font-size: 0.72rem; color: var(--violet); font-weight: 500; background: var(--violet-muted); padding: 2px 10px; border-radius: 100px; display: inline-block; margin-bottom: 8px; }
+  .exp-content p { font-size: 0.82rem; color: var(--gray-light); line-height: 1.6; }
 
-  /* ── CERTIFICADOS ────────────────────────────── */
-  .cert-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-  .cert-item { display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: white; border: 1px solid var(--border); border-radius: 10px; transition: all 0.2s; }
-  .cert-item:hover { border-color: var(--violet); background: var(--violet-muted); }
-  .cert-num { width: 26px; height: 26px; background: var(--violet); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 500; color: white; flex-shrink: 0; }
-  .cert-info h5 { font-size: 0.78rem; font-weight: 500; color: var(--black); }
-  .cert-info p { font-size: 0.7rem; color: var(--gray-light); }
+  /* ── CERTIFICADOS ────────────────────────────── */
+  .cert-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .cert-item { display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: white; border: 1px solid var(--border); border-radius: 10px; transition: all 0.2s; }
+  .cert-item:hover { border-color: var(--violet); background: var(--violet-muted); }
+  .cert-num { width: 26px; height: 26px; background: var(--violet); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 500; color: white; flex-shrink: 0; }
+  .cert-info h5 { font-size: 0.78rem; font-weight: 500; color: var(--black); }
+  .cert-info p { font-size: 0.7rem; color: var(--gray-light); }
 
-  /* ── LÍNGUAS ─────────────────────────────────── */
-  .lang-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .lang-item { padding: 16px 20px; background: white; border: 1px solid var(--border); border-radius: 12px; }
-  .lang-name { font-size: 0.85rem; font-weight: 500; color: var(--black); margin-bottom: 8px; display: flex; justify-content: space-between; }
-  .lang-level { font-size: 0.7rem; color: var(--violet); }
-  .lang-bar { height: 4px; background: var(--violet-muted); border-radius: 100px; }
-  .lang-bar-fill { height: 100%; background: var(--violet); border-radius: 100px; }
+  /* ── LÍNGUAS ─────────────────────────────────── */
+  .lang-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .lang-item { padding: 16px 20px; background: white; border: 1px solid var(--border); border-radius: 12px; }
+  .lang-name { font-size: 0.85rem; font-weight: 500; color: var(--black); margin-bottom: 8px; display: flex; justify-content: space-between; }
+  .lang-level { font-size: 0.7rem; color: var(--violet); }
+  .lang-bar { height: 4px; background: var(--violet-muted); border-radius: 100px; }
+  .lang-bar-fill { height: 100%; background: var(--violet); border-radius: 100px; }
 
-  /* ── PROJETOS ────────────────────────────────── */
-  #projetos { background: var(--black); }
-  #projetos .section-title { color: white; }
-  #projetos .section-desc { color: rgba(255,255,255,0.5); }
-  #projetos .section-tag { color: rgba(94,23,235,0.9); }
-  .projetos-nav { display: flex; gap: 4px; background: rgba(255,255,255,0.06); padding: 6px; border-radius: 100px; margin-bottom: 60px; width: fit-content; }
-  .proj-tab { padding: 11px 30px; border-radius: 100px; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.04em; cursor: pointer; transition: all 0.25s; color: rgba(255,255,255,0.5); border: none; background: transparent; font-family: 'DM Sans', sans-serif; text-decoration: none; display: inline-block; }
-  .proj-tab:hover { color: white; }
-  .proj-tab.active { background: var(--violet); color: white; box-shadow: 0 4px 20px rgba(94,23,235,0.4); }
-  .projeto-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; overflow: hidden; transition: all 0.3s; }
-  .projeto-card:hover { border-color: rgba(94,23,235,0.5); transform: translateY(-4px); box-shadow: 0 20px 60px rgba(94,23,235,0.2); }
-  .projeto-media { aspect-ratio: 16/9; background: rgba(94,23,235,0.1); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
-  .projeto-media-placeholder { display: flex; flex-direction: column; align-items: center; gap: 8px; color: rgba(255,255,255,0.3); font-size: 0.75rem; text-align: center; padding: 20px; }
-  .projeto-media-placeholder .big-icon { font-size: 2.5rem; opacity: 0.5; }
-  .projeto-media img, .projeto-media video { width: 100%; height: 100%; object-fit: cover; }
-  .projeto-info { padding: 24px; }
-  .projeto-tag { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--violet); font-weight: 500; margin-bottom: 8px; background: rgba(94,23,235,0.12); padding: 3px 12px; border-radius: 100px; display: inline-block; }
-  .projeto-info h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; color: white; margin-bottom: 8px; line-height: 1.3; }
-  .projeto-info p { font-size: 0.82rem; color: rgba(255,255,255,0.4); line-height: 1.7; }
-  .projetos-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+  /* ── PROJETOS ────────────────────────────────── */
+  #projetos { background: var(--black); }
+  #projetos .section-title { color: white; }
+  #projetos .section-desc { color: rgba(255,255,255,0.5); }
+  #projetos .section-tag { color: rgba(94,23,235,0.9); }
+  .projetos-nav { display: flex; gap: 4px; background: rgba(255,255,255,0.06); padding: 6px; border-radius: 100px; margin-bottom: 60px; width: fit-content; }
+  .proj-tab { padding: 11px 30px; border-radius: 100px; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.04em; cursor: pointer; transition: all 0.25s; color: rgba(255,255,255,0.5); border: none; background: transparent; font-family: 'DM Sans', sans-serif; text-decoration: none; display: inline-block; }
+  .proj-tab:hover { color: white; }
+  .proj-tab.active { background: var(--violet); color: white; box-shadow: 0 4px 20px rgba(94,23,235,0.4); }
+  .projeto-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; overflow: hidden; transition: all 0.3s; }
+  .projeto-card:hover { border-color: rgba(94,23,235,0.5); transform: translateY(-4px); box-shadow: 0 20px 60px rgba(94,23,235,0.2); }
+  .projeto-media { aspect-ratio: 16/9; background: rgba(94,23,235,0.1); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+  .projeto-media-placeholder { display: flex; flex-direction: column; align-items: center; gap: 8px; color: rgba(255,255,255,0.3); font-size: 0.75rem; text-align: center; padding: 20px; }
+  .projeto-media-placeholder .big-icon { font-size: 2.5rem; opacity: 0.5; }
+  .projeto-media img, .projeto-media video { width: 100%; height: 100%; object-fit: cover; }
+  .projeto-info { padding: 24px; }
+  .projeto-tag { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--violet); font-weight: 500; margin-bottom: 8px; background: rgba(94,23,235,0.12); padding: 3px 12px; border-radius: 100px; display: inline-block; }
+  .projeto-info h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; color: white; margin-bottom: 8px; line-height: 1.3; }
+  .projeto-info p { font-size: 0.82rem; color: rgba(255,255,255,0.4); line-height: 1.7; }
+  .projetos-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
 
-  /* ── PÁGINAS INTERNAS ────────────────────────── */
-  .page-overlay { display: none; position: fixed; inset: 0; background: var(--black); z-index: 5000; overflow-y: auto; }
-  .page-overlay.open { display: block; }
-  .page-inner { max-width: 1300px; margin: 0 auto; padding: 100px 5% 80px; }
-  .page-back { display: inline-flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.5); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer; margin-bottom: 50px; transition: color 0.2s; background: none; border: none; font-family: 'DM Sans', sans-serif; }
-  .page-back:hover { color: var(--violet); }
-  .page-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem,5vw,4rem); font-weight: 300; color: white; margin-bottom: 16px; line-height: 1.1; }
-  .page-title em { color: var(--violet); font-style: italic; }
-  .page-subtitle { color: rgba(255,255,255,0.4); font-size: 1rem; margin-bottom: 60px; }
+  /* ── PÁGINAS INTERNAS ────────────────────────── */
+  .page-overlay { display: none; position: fixed; inset: 0; background: var(--black); z-index: 5000; overflow-y: auto; }
+  .page-overlay.open { display: block; }
+  .page-inner { max-width: 1300px; margin: 0 auto; padding: 100px 5% 80px; }
+  .page-back { display: inline-flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.5); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer; margin-bottom: 50px; transition: color 0.2s; background: none; border: none; font-family: 'DM Sans', sans-serif; }
+  .page-back:hover { color: var(--violet); }
+  .page-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem,5vw,4rem); font-weight: 300; color: white; margin-bottom: 16px; line-height: 1.1; }
+  .page-title em { color: var(--violet); font-style: italic; }
+  .page-subtitle { color: rgba(255,255,255,0.4); font-size: 1rem; margin-bottom: 60px; }
 
-  /* ── MEDIA ZONES ─────────────────────────────── */
-  .media-zone { width: 100%; background: rgba(255,255,255,0.04); border: 1.5px dashed rgba(255,255,255,0.12); border-radius: 16px; aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; margin: 20px 0; position: relative; overflow: hidden; }
-  .media-zone-light { background: var(--violet-muted); border: 1.5px dashed rgba(94,23,235,0.2); aspect-ratio: 16/9; border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 20px 0; overflow: hidden; }
-  .media-placeholder { text-align: center; padding: 30px; color: rgba(255,255,255,0.25); }
-  .media-placeholder-light { text-align: center; padding: 30px; color: var(--violet); opacity: 0.6; }
-  .media-placeholder .icon { font-size: 2.5rem; margin-bottom: 10px; }
-  .media-placeholder p { font-size: 0.8rem; letter-spacing: 0.05em; }
+  /* ── MEDIA ZONES ─────────────────────────────── */
+  .media-zone { width: 100%; background: rgba(255,255,255,0.04); border: 1.5px dashed rgba(255,255,255,0.12); border-radius: 16px; aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; margin: 20px 0; position: relative; overflow: hidden; }
+  .media-zone-light { background: var(--violet-muted); border: 1.5px dashed rgba(94,23,235,0.2); aspect-ratio: 16/9; border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 20px 0; overflow: hidden; }
+  .media-placeholder { text-align: center; padding: 30px; color: rgba(255,255,255,0.25); }
+  .media-placeholder-light { text-align: center; padding: 30px; color: var(--violet); opacity: 0.6; }
+  .media-placeholder .icon { font-size: 2.5rem; margin-bottom: 10px; }
+  .media-placeholder p { font-size: 0.8rem; letter-spacing: 0.05em; }
 
-  /* ── DISCIPLINAS ─────────────────────────────── */
-  .disciplinas-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; margin-top: 40px; }
-  .disciplina-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; overflow: hidden; transition: all 0.3s; }
-  .disciplina-card:hover { border-color: rgba(94,23,235,0.5); box-shadow: 0 12px 40px rgba(94,23,235,0.15); }
-  .disc-header { padding: 20px 24px; background: linear-gradient(135deg,rgba(94,23,235,0.15),transparent); border-bottom: 1px solid rgba(255,255,255,0.06); }
-  .disc-header h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; color: white; margin-bottom: 4px; }
-  .disc-header p { font-size: 0.75rem; color: rgba(255,255,255,0.4); }
-  .disc-body { padding: 20px 24px; }
-  .disc-media { aspect-ratio: 16/9; background: rgba(94,23,235,0.08); border-radius: 10px; margin-bottom: 16px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-  .disc-desc { font-size: 0.82rem; color: rgba(255,255,255,0.4); line-height: 1.7; }
+  /* ── DISCIPLINAS ─────────────────────────────── */
+  .disciplinas-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; margin-top: 40px; }
+  .disciplina-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; overflow: hidden; transition: all 0.3s; }
+  .disciplina-card:hover { border-color: rgba(94,23,235,0.5); box-shadow: 0 12px 40px rgba(94,23,235,0.15); }
+  .disc-header { padding: 20px 24px; background: linear-gradient(135deg,rgba(94,23,235,0.15),transparent); border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .disc-header h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; color: white; margin-bottom: 4px; }
+  .disc-header p { font-size: 0.75rem; color: rgba(255,255,255,0.4); }
+  .disc-body { padding: 20px 24px; }
+  .disc-media { aspect-ratio: 16/9; background: rgba(94,23,235,0.08); border-radius: 10px; margin-bottom: 16px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .disc-desc { font-size: 0.82rem; color: rgba(255,255,255,0.4); line-height: 1.7; }
 
-  /* ── CONTATO ─────────────────────────────────── */
-  #contato { background: var(--violet); }
-  #contato .section-title { color: white; }
-  #contato .section-desc { color: rgba(255,255,255,0.7); }
-  #contato .section-tag { color: rgba(255,255,255,0.6); }
-  #contato .section-tag::before { background: rgba(255,255,255,0.6); }
-  .contato-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-  .contato-cards { display: flex; flex-direction: column; gap: 16px; }
-  .contato-card { display: flex; align-items: center; gap: 18px; padding: 20px 24px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); border-radius: 16px; transition: all 0.25s; text-decoration: none; backdrop-filter: blur(10px); }
-  .contato-card:hover { background: rgba(255,255,255,0.18); transform: translateX(6px); }
-  .contato-icon { width: 46px; height: 46px; background: rgba(255,255,255,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; color: white; }
-  .contato-label { font-size: 0.7rem; color: rgba(255,255,255,0.6); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 3px; }
-  .contato-value { font-size: 0.92rem; color: white; font-weight: 500; }
-  .contato-form-area h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 300; color: white; margin-bottom: 24px; line-height: 1.3; }
-  .form-group { margin-bottom: 16px; }
-  .form-group input, .form-group textarea { width: 100%; padding: 14px 18px; background: rgba(255,255,255,0.1); border: 1.5px solid rgba(255,255,255,0.15); border-radius: 12px; color: white; font-family: 'DM Sans', sans-serif; font-size: 0.88rem; transition: all 0.2s; resize: none; }
-  .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.4); }
-  .form-group input:focus, .form-group textarea:focus { outline: none; border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.15); }
-  .btn-white { padding: 14px 36px; background: white; color: var(--violet); border: none; border-radius: 100px; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.3s; letter-spacing: 0.04em; }
-  .btn-white:hover { background: var(--black); color: white; transform: translateY(-2px); }
+  /* ── CONTATO ─────────────────────────────────── */
+  #contato { background: var(--violet); }
+  #contato .section-title { color: white; }
+  #contato .section-desc { color: rgba(255,255,255,0.7); }
+  #contato .section-tag { color: rgba(255,255,255,0.6); }
+  #contato .section-tag::before { background: rgba(255,255,255,0.6); }
+  .contato-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .contato-cards { display: flex; flex-direction: column; gap: 16px; }
+  .contato-card { display: flex; align-items: center; gap: 18px; padding: 20px 24px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); border-radius: 16px; transition: all 0.25s; text-decoration: none; backdrop-filter: blur(10px); }
+  .contato-card:hover { background: rgba(255,255,255,0.18); transform: translateX(6px); }
+  .contato-icon { width: 46px; height: 46px; background: rgba(255,255,255,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; color: white; }
+  .contato-label { font-size: 0.7rem; color: rgba(255,255,255,0.6); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 3px; }
+  .contato-value { font-size: 0.92rem; color: white; font-weight: 500; }
+  .contato-form-area h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 300; color: white; margin-bottom: 24px; line-height: 1.3; }
+  .form-group { margin-bottom: 16px; }
+  .form-group input, .form-group textarea { width: 100%; padding: 14px 18px; background: rgba(255,255,255,0.1); border: 1.5px solid rgba(255,255,255,0.15); border-radius: 12px; color: white; font-family: 'DM Sans', sans-serif; font-size: 0.88rem; transition: all 0.2s; resize: none; }
+  .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.4); }
+  .form-group input:focus, .form-group textarea:focus { outline: none; border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.15); }
+  .btn-white { padding: 14px 36px; background: white; color: var(--violet); border: none; border-radius: 100px; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.3s; letter-spacing: 0.04em; }
+  .btn-white:hover { background: var(--black); color: white; transform: translateY(-2px); }
 
-  /* ── FOOTER ──────────────────────────────────── */
-  footer { background: var(--black); padding: 40px 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
-  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: white; letter-spacing: 0.02em; }
-  .footer-logo span { color: var(--violet); }
-  .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.3); }
-  .footer-links { display: flex; gap: 20px; }
-  .footer-links a { font-size: 0.75rem; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
-  .footer-links a:hover { color: var(--violet); }
+  /* ── FOOTER ──────────────────────────────────── */
+  footer { background: var(--black); padding: 40px 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: white; letter-spacing: 0.02em; }
+  .footer-logo span { color: var(--violet); }
+  .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.3); }
+  .footer-links { display: flex; gap: 20px; }
+  .footer-links a { font-size: 0.75rem; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--violet); }
 
-  /* ── ADMIN LOGIN MODAL ───────────────────────── */
-  .admin-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px); z-index: 9999; align-items: center; justify-content: center; }
-  .admin-overlay.open { display: flex; }
-  .admin-modal { background: white; border-radius: 24px; width: 90%; max-width: 440px; padding: 48px 40px; box-shadow: 0 40px 100px rgba(0,0,0,0.3); position: relative; }
-  .admin-modal h2 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 600; color: var(--black); margin-bottom: 6px; }
-  .admin-modal > p { font-size: 0.85rem; color: var(--gray-light); margin-bottom: 32px; }
-  .admin-field { margin-bottom: 16px; }
-  .admin-field label { display: block; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); font-weight: 500; margin-bottom: 8px; }
-  .admin-field input { width: 100%; padding: 13px 18px; border: 1.5px solid var(--border); border-radius: 12px; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; transition: border-color 0.2s; color: var(--black); }
-  .admin-field input:focus { outline: none; border-color: var(--violet); }
-  .admin-error { font-size: 0.8rem; color: #e53e3e; margin-bottom: 12px; display: none; }
-  .admin-close { position: absolute; top: 16px; right: 20px; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--gray-light); transition: color 0.2s; }
-  .admin-close:hover { color: var(--black); }
+  /* ── ADMIN LOGIN MODAL ───────────────────────── */
+  .admin-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px); z-index: 9999; align-items: center; justify-content: center; }
+  .admin-overlay.open { display: flex; }
+  .admin-modal { background: white; border-radius: 24px; width: 90%; max-width: 440px; padding: 48px 40px; box-shadow: 0 40px 100px rgba(0,0,0,0.3); position: relative; }
+  .admin-modal h2 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 600; color: var(--black); margin-bottom: 6px; }
+  .admin-modal > p { font-size: 0.85rem; color: var(--gray-light); margin-bottom: 32px; }
+  .admin-field { margin-bottom: 16px; }
+  .admin-field label { display: block; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); font-weight: 500; margin-bottom: 8px; }
+  .admin-field input { width: 100%; padding: 13px 18px; border: 1.5px solid var(--border); border-radius: 12px; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; transition: border-color 0.2s; color: var(--black); }
+  .admin-field input:focus { outline: none; border-color: var(--violet); }
+  .admin-error { font-size: 0.8rem; color: #e53e3e; margin-bottom: 12px; display: none; }
+  .admin-close { position: absolute; top: 16px; right: 20px; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--gray-light); transition: color 0.2s; }
+  .admin-close:hover { color: var(--black); }
 
-  /* ── ADMIN BADGE ─────────────────────────────── */
-  .admin-logged { display: none; position: fixed; top: 80px; right: 20px; background: var(--violet); color: white; padding: 10px 20px; border-radius: 100px; font-size: 0.8rem; font-weight: 500; z-index: 9000; box-shadow: 0 4px 20px rgba(94,23,235,0.4); align-items: center; gap: 10px; }
-  .admin-logged.open { display: flex; }
-  .admin-logout { background: rgba(255,255,255,0.2); border: none; border-radius: 100px; color: white; font-size: 0.72rem; padding: 4px 10px; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: background 0.2s; }
-  .admin-logout:hover { background: rgba(255,255,255,0.35); }
+  /* ── ADMIN BADGE ─────────────────────────────── */
+  .admin-logged { display: none; position: fixed; top: 80px; right: 20px; background: var(--violet); color: white; padding: 10px 20px; border-radius: 100px; font-size: 0.8rem; font-weight: 500; z-index: 9000; box-shadow: 0 4px 20px rgba(94,23,235,0.4); align-items: center; gap: 10px; }
+  .admin-logged.open { display: flex; }
+  .admin-logout { background: rgba(255,255,255,0.2); border: none; border-radius: 100px; color: white; font-size: 0.72rem; padding: 4px 10px; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: background 0.2s; }
+  .admin-logout:hover { background: rgba(255,255,255,0.35); }
 
-  /* ── ADMIN PANEL ─────────────────────────────── */
-  .admin-panel { display: none; position: fixed; inset: 0; background: var(--black); z-index: 8000; overflow-y: auto; }
-  .admin-panel.open { display: block; }
-  .admin-panel-inner { max-width: 960px; margin: 0 auto; padding: 80px 5%; }
-  .admin-panel-title { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 300; color: white; margin-bottom: 8px; }
-  .admin-panel-title em { color: var(--violet); font-style: italic; }
-  .admin-panel-sub { color: rgba(255,255,255,0.4); font-size: 0.9rem; margin-bottom: 16px; }
-  .admin-save-all-bar { background: rgba(94,23,235,0.12); border: 1px solid rgba(94,23,235,0.3); border-radius: 14px; padding: 16px 22px; margin-bottom: 40px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
-  .admin-save-all-bar p { font-size: 0.82rem; color: rgba(255,255,255,0.6); }
-  .btn-save-all { padding: 11px 28px; background: var(--violet); color: white; border: none; border-radius: 100px; font-family: 'DM Sans', sans-serif; font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: all 0.25s; display: flex; align-items: center; gap: 8px; }
-  .btn-save-all:hover { background: var(--violet-dark); }
-  .admin-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; }
-  .admin-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 28px; transition: all 0.25s; cursor: pointer; }
-  .admin-card:hover { border-color: rgba(94,23,235,0.5); background: rgba(94,23,235,0.06); }
-  .admin-card-icon { font-size: 2rem; margin-bottom: 14px; }
-  .admin-card h3 { font-size: 1rem; font-weight: 500; color: white; margin-bottom: 6px; }
-  .admin-card p { font-size: 0.8rem; color: rgba(255,255,255,0.3); }
-  .admin-section-edit { display: none; margin-top: 30px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 28px; }
-  .admin-section-edit.open { display: block; }
-  .edit-section-title { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; color: white; margin-bottom: 20px; }
-  .edit-field { margin-bottom: 16px; }
-  .edit-field label { display: block; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 8px; }
-  .edit-field input, .edit-field textarea { width: 100%; padding: 12px 16px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: white; font-family: 'DM Sans', sans-serif; font-size: 0.88rem; resize: none; }
-  .edit-field input:focus, .edit-field textarea:focus { outline: none; border-color: var(--violet); }
-  .edit-actions { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
-  .edit-save { padding: 11px 28px; background: var(--violet); color: white; border: none; border-radius: 100px; font-family: 'DM Sans', sans-serif; font-size: 0.82rem; font-weight: 500; cursor: pointer; transition: all 0.25s; }
-  .edit-save:hover { background: var(--violet-dark); }
-  .edit-cancel { padding: 11px 28px; background: transparent; color: rgba(255,255,255,0.4); border: 1px solid rgba(255,255,255,0.1); border-radius: 100px; font-family: 'DM Sans', sans-serif; font-size: 0.82rem; cursor: pointer; transition: all 0.25s; }
-  .edit-cancel:hover { color: white; border-color: rgba(255,255,255,0.3); }
-  .admin-back { display: inline-flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.4); font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; background: none; border: none; font-family: 'DM Sans', sans-serif; margin-bottom: 40px; transition: color 0.2s; }
-  .admin-back:hover { color: var(--violet); }
-  .sub-block { border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 16px; margin-bottom: 14px; }
-  .sub-block-label { color: var(--violet); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px; }
+  /* ── ADMIN PANEL ─────────────────────────────── */
+  .admin-panel { display: none; position: fixed; inset: 0; background: var(--black); z-index: 8000; overflow-y: auto; }
+  .admin-panel.open { display: block; }
+  .admin-panel-inner { max-width: 960px; margin: 0 auto; padding: 80px 5%; }
+  .admin-panel-title { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 300; color: white; margin-bottom: 8px; }
+  .admin-panel-title em { color: var(--violet); font-style: italic; }
+  .admin-panel-sub { color: rgba(255,255,255,0.4); font-size: 0.9rem; margin-bottom: 16px; }
+  .admin-save-all-bar { background: rgba(94,23,235,0.12); border: 1px solid rgba(94,23,235,0.3); border-radius: 14px; padding: 16px 22px; margin-bottom: 40px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .admin-save-all-bar p { font-size: 0.82rem; color: rgba(255,255,255,0.6); }
+  .btn-save-all { padding: 11px 28px; background: var(--violet); color: white; border: none; border-radius: 100px; font-family: 'DM Sans', sans-serif; font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: all 0.25s; display: flex; align-items: center; gap: 8px; }
+  .btn-save-all:hover { background: var(--violet-dark); }
+  .admin-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; }
+  .admin-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 28px; transition: all 0.25s; cursor: pointer; }
+  .admin-card:hover { border-color: rgba(94,23,235,0.5); background: rgba(94,23,235,0.06); }
+  .admin-card-icon { font-size: 2rem; margin-bottom: 14px; }
+  .admin-card h3 { font-size: 1rem; font-weight: 500; color: white; margin-bottom: 6px; }
+  .admin-card p { font-size: 0.8rem; color: rgba(255,255,255,0.3); }
+  .admin-section-edit { display: none; margin-top: 30px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 28px; }
+  .admin-section-edit.open { display: block; }
+  .edit-section-title { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; color: white; margin-bottom: 20px; }
+  .edit-field { margin-bottom: 16px; }
+  .edit-field label { display: block; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 8px; }
+  .edit-field input, .edit-field textarea { width: 100%; padding: 12px 16px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: white; font-family: 'DM Sans', sans-serif; font-size: 0.88rem; resize: none; }
+  .edit-field input:focus, .edit-field textarea:focus { outline: none; border-color: var(--violet); }
+  .edit-actions { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+  .edit-save { padding: 11px 28px; background: var(--violet); color: white; border: none; border-radius: 100px; font-family: 'DM Sans', sans-serif; font-size: 0.82rem; font-weight: 500; cursor: pointer; transition: all 0.25s; }
+  .edit-save:hover { background: var(--violet-dark); }
+  .edit-cancel { padding: 11px 28px; background: transparent; color: rgba(255,255,255,0.4); border: 1px solid rgba(255,255,255,0.1); border-radius: 100px; font-family: 'DM Sans', sans-serif; font-size: 0.82rem; cursor: pointer; transition: all 0.25s; }
+  .edit-cancel:hover { color: white; border-color: rgba(255,255,255,0.3); }
+  .admin-back { display: inline-flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.4); font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; background: none; border: none; font-family: 'DM Sans', sans-serif; margin-bottom: 40px; transition: color 0.2s; }
+  .admin-back:hover { color: var(--violet); }
+  .sub-block { border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 16px; margin-bottom: 14px; }
+  .sub-block-label { color: var(--violet); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px; }
 
-  /* ── ANIMATIONS ──────────────────────────────── */
-  .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
-  .fade-up.visible { opacity: 1; transform: translateY(0); }
+  /* ── ANIMATIONS ──────────────────────────────── */
+  .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
 
-  /* ── SCROLLBAR ───────────────────────────────── */
-  ::-webkit-scrollbar { width: 5px; }
-  ::-webkit-scrollbar-track { background: var(--black); }
-  ::-webkit-scrollbar-thumb { background: var(--violet); border-radius: 100px; }
+  /* ── SCROLLBAR ───────────────────────────────── */
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: var(--black); }
+  ::-webkit-scrollbar-thumb { background: var(--violet); border-radius: 100px; }
 
-  /* ── RESPONSIVE ──────────────────────────────── */
-  @media (max-width: 900px) {
-    .hero-content { grid-template-columns: 1fr; gap: 50px; }
-    .hero-visual { order: -1; max-width: 350px; margin: 0 auto; }
-    .sobre-grid { grid-template-columns: 1fr; }
-    .projetos-grid { grid-template-columns: 1fr 1fr; }
-    .contato-grid { grid-template-columns: 1fr; gap: 50px; }
-    .disciplinas-grid { grid-template-columns: 1fr; }
-    .cert-grid { grid-template-columns: 1fr; }
-    nav .nav-links { display: none; }
-  }
-  @media (max-width: 600px) {
-    .projetos-grid { grid-template-columns: 1fr; }
-    .admin-grid { grid-template-columns: 1fr; }
-  }
+  /* ── RESPONSIVE ──────────────────────────────── */
+  @media (max-width: 900px) {
+    .hero-content { grid-template-columns: 1fr; gap: 50px; }
+    .hero-visual { order: -1; max-width: 350px; margin: 0 auto; }
+    .sobre-grid { grid-template-columns: 1fr; }
+    .projetos-grid { grid-template-columns: 1fr 1fr; }
+    .contato-grid { grid-template-columns: 1fr; gap: 50px; }
+    .disciplinas-grid { grid-template-columns: 1fr; }
+    .cert-grid { grid-template-columns: 1fr; }
+    nav .nav-links { display: none; }
+  }
+  @media (max-width: 600px) {
+    .projetos-grid { grid-template-columns: 1fr; }
+    .admin-grid { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body style="">
 
 <!-- ADMIN BADGE -->
 <div class="admin-logged" id="adminBadge">
-  ✦ Modo Administrador
-  <button class="admin-logout" onclick="logout()">Sair</button>
-  <button class="admin-logout" onclick="openAdminPanel()">Painel</button>
+  ✦ Modo Administrador
+  <button class="admin-logout" onclick="logout()">Sair</button>
+  <button class="admin-logout" onclick="openAdminPanel()">Painel</button>
 </div>
 
 <!-- NAVIGATION -->
 <nav id="navbar" class="scrolled">
-  <a href="#home" class="nav-logo">✦ <span>Mariana</span>Camargo</a>
-  <ul class="nav-links">
-    <li><a href="#home">Início</a></li>
-    <li><a href="#sobre">Sobre</a></li>
-    <li><a href="#projetos">Projetos</a></li>
-    <li><a href="#contato">Contato</a></li>
-  </ul>
-  <button class="nav-admin-btn" onclick="openAdminLogin()">Admin ↗</button>
+  <a href="#home" class="nav-logo">✦ <span>Mariana</span>Camargo</a>
+  <ul class="nav-links">
+    <li><a href="#home">Início</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#projetos">Projetos</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <button class="nav-admin-btn" onclick="openAdminLogin()">Admin ↗</button>
 </nav>
 
 <!-- ═══════════════ HERO ═══════════════ -->
 <section id="home">
-  <div class="hero-bg"></div>
-  <div class="hero-grain"></div>
-  <div class="hero-content">
-    <div class="hero-text fade-up visible">
-      <div class="hero-tag">Estudante · Professora</div>
-      <h1 class="hero-name">Mariana<br><em>Camargo</em></h1>
-      <p class="hero-subtitle" id="hero-subtitle">Educação | Pedagogia | Aulas Particulares</p>
-      <p class="hero-desc" id="hero-desc"></p>
-      <div class="hero-cta">
-        <a href="#sobre" class="btn-primary">Conheça meu trabalho ↓</a>
-        <a href="#contato" class="btn-secondary">Entre em contato</a>
-      </div>
-    </div>
-    <div class="hero-visual fade-up visible" style="transition-delay:0.2s">
-      <div class="hero-deco-1"></div>
-      <div class="hero-deco-2"></div>
-      <div class="hero-photo-frame">
-        <img src="file:///C:/Users/Mariana/Desktop/Mariana%20-%202026/[FTVA]%20Site/Logo%20Mariana%20Camargo.jpg" alt="Foto Logo">
-      </div>
-      <div class="hero-stats">
-        <div class="stat-pill">
-          <span class="num" id="stat1-num">10+</span>
-          <span class="label">Certificados</span>
-        </div>
-        <div class="stat-pill">
-          <span class="num" id="stat2-num">4+</span>
-          <span class="label">Experiências</span>
-        </div>
-        <div class="stat-pill">
-          <span class="num" id="stat3-num">2</span>
-          <span class="label">Línguas</span>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div class="hero-bg"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-content">
+    <div class="hero-text fade-up visible">
+      <div class="hero-tag">Estudante · Professora</div>
+      <h1 class="hero-name">Mariana<br><em>Camargo</em></h1>
+      <p class="hero-subtitle" id="hero-subtitle">Educação | Pedagogia | Aulas Particulares</p>
+      <p class="hero-desc" id="hero-desc"></p>
+      <div class="hero-cta">
+        <a href="#sobre" class="btn-primary">Conheça meu trabalho ↓</a>
+        <a href="#contato" class="btn-secondary">Entre em contato</a>
+      </div>
+    </div>
+    <div class="hero-visual fade-up visible" style="transition-delay:0.2s">
+      <div class="hero-deco-1"></div>
+      <div class="hero-deco-2"></div>
+      <div class="hero-photo-frame">
+        <!-- Para adicionar sua foto: substitua o bloco abaixo por <img src="sua-foto.jpg" alt="Foto"> -->
+        <div class="hero-photo-placeholder">
+          <div style="font-size:2.5rem;opacity:0.5"> </div>
+          <div>Adicione sua foto aqui<br><small>Substitua pela tag &lt;img&gt;</small></div>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-pill">
+          <span class="num" id="stat1-num">10+</span>
+          <span class="label">Certificados</span>
+        </div>
+        <div class="stat-pill">
+          <span class="num" id="stat2-num">4+</span>
+          <span class="label">Experiências</span>
+        </div>
+        <div class="stat-pill">
+          <span class="num" id="stat3-num">2</span>
+          <span class="label">Línguas</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ═══════════════ SOBRE ═══════════════ -->
 <section id="sobre">
-  <div class="section-inner">
-    <div class="sobre-grid">
-      <div class="sobre-left fade-up visible">
-        <div class="sobre-photo">
-          <!-- Para adicionar foto: <img src="sobre-foto.jpg" alt="Sobre mim"> -->
-          <div class="sobre-photo-placeholder">
-            <div style="font-size:2rem">🎨</div>
-            <div>Sua foto aqui</div>
-          </div>
-        </div>
-        <!-- ÁREA PARA VÍDEO DE APRESENTAÇÃO -->
-        <div class="media-zone-light">
-          <div class="media-placeholder-light">
-            <div style="font-size:2rem">▶</div>
-            <div style="font-size:0.8rem;margin-top:8px">Vídeo de apresentação<br><small>Cole aqui o &lt;iframe&gt; do YouTube/Vimeo</small></div>
-          </div>
-        </div>
-        <div class="sobre-quote" id="sobre-quote">“A educação é o maior ato de amor e coragem.”</div>
-      </div>
+  <div class="section-inner">
+    <div class="sobre-grid">
+      <div class="sobre-left fade-up visible">
+        <div class="sobre-photo">
+          <!-- Para adicionar foto: <img src="sobre-foto.jpg" alt="Sobre mim"> -->
+          <div class="sobre-photo-placeholder">
+            <div style="font-size:2rem"> </div>
+            <div>Sua foto aqui</div>
+          </div>
+        </div>
+        <!-- ÁREA PARA VÍDEO DE APRESENTAÇÃO -->
+        <div class="media-zone-light">
+          <div class="media-placeholder-light">
+            <div style="font-size:2rem"> </div>
+            <div style="font-size:0.8rem;margin-top:8px">Vídeo de apresentação<br><small>Cole aqui o &lt;iframe&gt; do YouTube/Vimeo</small></div>
+          </div>
+        </div>
+        <div class="sobre-quote" id="sobre-quote">“A educação é o maior ato de amor e coragem.”</div>
+      </div>
 
-      <div class="sobre-right fade-up visible" style="transition-delay:0.15s">
-        <div class="section-tag">Sobre Mim</div>
-        <h2 class="section-title">Quem <em>sou eu?</em><br></h2>
-        <div class="divider"></div>
-        <p class="sobre-bio" id="sobre-bio">Sou uma jovem empreendedora, professora, apaixonada pela educação e com o propósito de transformá-la!
+      <div class="sobre-right fade-up visible" style="transition-delay:0.15s">
+        <div class="section-tag">Sobre Mim</div>
+        <h2 class="section-title">Quem <em>sou eu?</em><br></h2>
+        <div class="divider"></div>
+        <p class="sobre-bio" id="sobre-bio">Sou uma jovem empreendedora, professora, apaixonada pela educação e com o propósito de transformá-la!
 
 Desde a infância sempre me engajei em atividades extracurriculares, projetos e olímpiadas. Em 2024, com o incentivo de professores e coordenadores da escola em que me formei, percebi que poderia ajudar outros alunos a também evoluírem nos estudos. Desde então, ministro aulas particulares de reforço escolar para alunos do Ensino Fundamental II e Ensino Médio. 
 
@@ -394,570 +398,570 @@ Sempre encantada pelo universo da aprendizagem e da educação, após começar a
 
 Em 2026, ingressei na licenciatura em Pedagogia, no Instituto Singularidades, a faculdade de educação mais inovadora do Brasil.</p>
 
-        <!-- FORMAÇÃO -->
-        <div class="accordion-section">
-          <div class="accordion-header" onclick="toggleAccordion(this)">
-            🎓 &nbsp;Formação Acadêmica
-            <span class="accordion-icon">+</span>
-          </div>
-          <div class="accordion-body">
-            <div class="formacao-item">
-              <div class="formacao-icon">🎓</div>
-              <div class="formacao-info">
-                <h4 id="form1-title">Licenciatura em Pedagogia</h4>
-                <p id="form1-inst">Instituto Singularidades</p>
-                <span class="period" id="form1-period">2026 — 2029</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <!-- FORMAÇÃO -->
+        <div class="accordion-section">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            &nbsp;Formação Acadêmica
+            <span class="accordion-icon">+</span>
+          </div>
+          <div class="accordion-body">
+            <div class="formacao-item">
+              <div class="formacao-icon"> </div>
+              <div class="formacao-info">
+                <h4 id="form1-title">Licenciatura em Pedagogia</h4>
+                <p id="form1-inst">Instituto Singularidades</p>
+                <span class="period" id="form1-period">2026 — 2029</span>
+              </div>
+            </div>
+          </div>
+        </div>
 
-        <!-- EXPERIÊNCIAS -->
-        <div class="accordion-section">
-          <div class="accordion-header active" onclick="toggleAccordion(this)">
-            💼 &nbsp;Experiências Profissionais
-            <span class="accordion-icon">+</span>
-          </div>
-          <div class="accordion-body open">
-            <div class="exp-timeline">
-              <div class="exp-item">
-                <div class="exp-dot">✦</div>
-                <div class="exp-content">
-                  <h4 id="exp1-title">Estágio Curricular</h4>
-                  <p class="place" id="exp1-place">EMEI João Theodoro</p>
-                  <span class="period" id="exp1-period">mar 2026 — atual</span>
-                  <p id="exp1-desc">Descrição breve das atividades e responsabilidades exercidas.</p>
-                </div>
-              </div>
-              <div class="exp-item">
-                <div class="exp-dot">✦</div>
-                <div class="exp-content">
-                  <h4 id="exp2-title">Fundadora e Professora</h4>
-                  <p class="place" id="exp2-place">Espaço Superare</p>
-                  <span class="period" id="exp2-period">jan 2024 — atual</span>
-                  <p id="exp2-desc">Descrição breve das atividades e responsabilidades exercidas.</p>
-                </div>
-              </div>
-              <div class="exp-item">
-                <div class="exp-dot">✦</div>
-                <div class="exp-content">
-                  <h4 id="exp3-title">Professora Particular</h4>
-                  <p class="place" id="exp3-place">Infinite Educação e Saúde</p>
-                  <span class="period" id="exp3-period">nov 2025 — atual</span>
-                  <p id="exp3-desc">Descrição breve das atividades e responsabilidades exercidas.</p>
-                </div>
-              </div>
-              <div class="exp-item">
-                <div class="exp-dot">✦</div>
-                <div class="exp-content">
-                  <h4 id="exp4-title">Estágio Voluntário</h4>
-                  <p class="place" id="exp4-place">UBS Brás Dr Manoel Saldiva Neto</p>
-                  <span class="period" id="exp4-period">mar 2023 — jul 2023</span>
-                  <p id="exp4-desc">Descrição breve das atividades e responsabilidades exercidas.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <!-- EXPERIÊNCIAS -->
+        <div class="accordion-section">
+          <div class="accordion-header active" onclick="toggleAccordion(this)">
+            &nbsp;Experiências Profissionais
+            <span class="accordion-icon">+</span>
+          </div>
+          <div class="accordion-body open">
+            <div class="exp-timeline">
+              <div class="exp-item">
+                <div class="exp-dot">✦</div>
+                <div class="exp-content">
+                  <h4 id="exp1-title">Estágio Curricular</h4>
+                  <p class="place" id="exp1-place">EMEI João Theodoro</p>
+                  <span class="period" id="exp1-period">mar 2026 — atual</span>
+                  <p id="exp1-desc">Descrição breve das atividades e responsabilidades exercidas.</p>
+                </div>
+              </div>
+              <div class="exp-item">
+                <div class="exp-dot">✦</div>
+                <div class="exp-content">
+                  <h4 id="exp2-title">Fundadora e Professora</h4>
+                  <p class="place" id="exp2-place">Espaço Superare</p>
+                  <span class="period" id="exp2-period">jan 2024 — atual</span>
+                  <p id="exp2-desc">Descrição breve das atividades e responsabilidades exercidas.</p>
+                </div>
+              </div>
+              <div class="exp-item">
+                <div class="exp-dot">✦</div>
+                <div class="exp-content">
+                  <h4 id="exp3-title">Professora Particular</h4>
+                  <p class="place" id="exp3-place">Infinite Educação e Saúde</p>
+                  <span class="period" id="exp3-period">nov 2025 — atual</span>
+                  <p id="exp3-desc">Descrição breve das atividades e responsabilidades exercidas.</p>
+                </div>
+              </div>
+              <div class="exp-item">
+                <div class="exp-dot">✦</div>
+                <div class="exp-content">
+                  <h4 id="exp4-title">Estágio Voluntário</h4>
+                  <p class="place" id="exp4-place">UBS Brás Dr Manoel Saldiva Neto</p>
+                  <span class="period" id="exp4-period">mar 2023 — jul 2023</span>
+                  <p id="exp4-desc">Descrição breve das atividades e responsabilidades exercidas.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-        <!-- CERTIFICADOS -->
-        <div class="accordion-section">
-          <div class="accordion-header" onclick="toggleAccordion(this)">
-            🏆 &nbsp;Licenças e Certificados
-            <span class="accordion-icon">+</span>
-          </div>
-          <div class="accordion-body">
-            <div class="cert-grid">
-              <div class="cert-item"><div class="cert-num">01</div><div class="cert-info"><h5 id="cert1">Competências Gerais na BNCC</h5><p id="cert1-org">Associação Nova Escola</p></div></div>
-              <div class="cert-item"><div class="cert-num">02</div><div class="cert-info"><h5 id="cert2">Estilos de Aprendizagem</h5><p id="cert2-org">ENAP | Escola Nacional de Administração Pública</p></div></div>
-              <div class="cert-item"><div class="cert-num">03</div><div class="cert-info"><h5 id="cert3">Programa de Formação de Professores Particulares: Capacitação Técnica e Empreendedora</h5><p id="cert3-org">Anhanguera Educacional</p></div></div>
-              <div class="cert-item"><div class="cert-num">04</div><div class="cert-info"><h5 id="cert4">Apropriação do Universo Científico - Astrominas</h5><p id="cert4-org">IAG-USP | Instituto de Astronomia, Geofísica e Ciências Atmosféricas da USP</p></div></div>
-              <div class="cert-item"><div class="cert-num">05</div><div class="cert-info"><h5 id="cert5">Curso Básico de Fotografia</h5><p id="cert5-org">Casa de Cultura Ipiranga - Chico Science</p></div></div>
-              <div class="cert-item"><div class="cert-num">06</div><div class="cert-info"><h5 id="cert6">Dimensões do Ser Humano</h5><p id="cert6-org">UAM | Universidade Anhembi Morumbi</p></div></div>
-              <div class="cert-item"><div class="cert-num">07</div><div class="cert-info"><h5 id="cert7">Terapias Naturais</h5><p id="cert7-org">UAM | Universidade Anhembi Morumbi</p></div></div>
-              <div class="cert-item"><div class="cert-num">08</div><div class="cert-info"><h5 id="cert8">Certificado 8</h5><p id="cert8-org">Organização</p></div></div>
-              <div class="cert-item"><div class="cert-num">09</div><div class="cert-info"><h5 id="cert9">Certificado 9</h5><p id="cert9-org">Organização</p></div></div>
-              <div class="cert-item"><div class="cert-num">10</div><div class="cert-info"><h5 id="cert10">Certificado 10</h5><p id="cert10-org">Organização</p></div></div>
-            </div>
-          </div>
-        </div>
+        <!-- CERTIFICADOS -->
+        <div class="accordion-section">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            &nbsp;Licenças e Certificados
+            <span class="accordion-icon">+</span>
+          </div>
+          <div class="accordion-body">
+            <div class="cert-grid">
+              <div class="cert-item"><div class="cert-num">01</div><div class="cert-info"><h5 id="cert1">Competências Gerais na BNCC</h5><p id="cert1-org">Associação Nova Escola</p></div></div>
+              <div class="cert-item"><div class="cert-num">02</div><div class="cert-info"><h5 id="cert2">Estilos de Aprendizagem</h5><p id="cert2-org">ENAP | Escola Nacional de Administração Pública</p></div></div>
+              <div class="cert-item"><div class="cert-num">03</div><div class="cert-info"><h5 id="cert3">Programa de Formação de Professores Particulares: Capacitação Técnica e Empreendedora</h5><p id="cert3-org">Anhanguera Educacional</p></div></div>
+              <div class="cert-item"><div class="cert-num">04</div><div class="cert-info"><h5 id="cert4">Apropriação do Universo Científico - Astrominas</h5><p id="cert4-org">IAG-USP | Instituto de Astronomia, Geofísica e Ciências Atmosféricas da USP</p></div></div>
+              <div class="cert-item"><div class="cert-num">05</div><div class="cert-info"><h5 id="cert5">Curso Básico de Fotografia</h5><p id="cert5-org">Casa de Cultura Ipiranga - Chico Science</p></div></div>
+              <div class="cert-item"><div class="cert-num">06</div><div class="cert-info"><h5 id="cert6">Dimensões do Ser Humano</h5><p id="cert6-org">UAM | Universidade Anhembi Morumbi</p></div></div>
+              <div class="cert-item"><div class="cert-num">07</div><div class="cert-info"><h5 id="cert7">Terapias Naturais</h5><p id="cert7-org">UAM | Universidade Anhembi Morumbi</p></div></div>
+              <div class="cert-item"><div class="cert-num">08</div><div class="cert-info"><h5 id="cert8">Certificado 8</h5><p id="cert8-org">Organização</p></div></div>
+              <div class="cert-item"><div class="cert-num">09</div><div class="cert-info"><h5 id="cert9">Certificado 9</h5><p id="cert9-org">Organização</p></div></div>
+              <div class="cert-item"><div class="cert-num">10</div><div class="cert-info"><h5 id="cert10">Certificado 10</h5><p id="cert10-org">Organização</p></div></div>
+            </div>
+          </div>
+        </div>
 
-        <!-- LÍNGUAS -->
-        <div class="accordion-section">
-          <div class="accordion-header" onclick="toggleAccordion(this)">
-            🌍 &nbsp;Línguas
-            <span class="accordion-icon">+</span>
-          </div>
-          <div class="accordion-body">
-            <div class="lang-grid">
-              <div class="lang-item">
-                <div class="lang-name"><span id="lang1">Português</span><span class="lang-level" id="lang1-level">Nativo</span></div>
-                <div class="lang-bar"><div class="lang-bar-fill" style="width:100%" id="lang1-bar"></div></div>
-              </div>
-              <div class="lang-item">
-                <div class="lang-name"><span id="lang2">Inglês</span><span class="lang-level" id="lang2-level">Intermediário</span></div>
-                <div class="lang-bar"><div class="lang-bar-fill" style="width: 70%;" id="lang2-bar"></div></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+        <!-- LÍNGUAS -->
+        <div class="accordion-section">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            &nbsp;Línguas
+            <span class="accordion-icon">+</span>
+          </div>
+          <div class="accordion-body">
+            <div class="lang-grid">
+              <div class="lang-item">
+                <div class="lang-name"><span id="lang1">Português</span><span class="lang-level" id="lang1-level">Nativo</span></div>
+                <div class="lang-bar"><div class="lang-bar-fill" style="width:100%" id="lang1-bar"></div></div>
+              </div>
+              <div class="lang-item">
+                <div class="lang-name"><span id="lang2">Inglês</span><span class="lang-level" id="lang2-level">Intermediário</span></div>
+                <div class="lang-bar"><div class="lang-bar-fill" style="width: 70%;" id="lang2-bar"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ═══════════════ PROJETOS ═══════════════ -->
 <section id="projetos">
-  <div class="section-inner">
-    <div class="section-tag" style="color:rgba(94,23,235,0.9)">Projetos &amp; Produções</div>
-    <h2 class="section-title" style="color:white">Meus <em>trabalhos</em><br>em destaque</h2>
-    <p class="section-desc">Produções acadêmicas, educacionais e artísticas que refletem minha jornada e propósito.</p>
-    <div class="projetos-nav">
-      <a href="javascript:void(0)" class="proj-tab active" onclick="openPage('disciplinas')">Faculdade de Pedagogia</a>
-      <a href="javascript:void(0)" class="proj-tab active" onclick="openPage('superare')">Espaço Superare</a>
-    </div>
-    <div class="projetos-grid">
-      <div class="projeto-card fade-up visible">
-        <div class="projeto-media">
-          <!-- <img src="projeto1.jpg" alt=""> -->
-          <div class="projeto-media-placeholder"><div class="big-icon">📚</div><div>Foto / Vídeo do Projeto</div></div>
-        </div>
-        <div class="projeto-info">
-          <span class="projeto-tag">Destaque</span>
-          <h3 id="proj1-title">Nome da Disciplina / Projeto 1</h3>
-          <p id="proj1-desc">Descrição breve do projeto ou trabalho desenvolvido nesta disciplina.</p>
-        </div>
-      </div>
-      <div class="projeto-card fade-up visible" style="transition-delay:0.1s">
-        <div class="projeto-media">
-          <div class="projeto-media-placeholder"><div class="big-icon">🎭</div><div>Foto / Vídeo do Projeto</div></div>
-        </div>
-        <div class="projeto-info">
-          <span class="projeto-tag">Destaque</span>
-          <h3 id="proj2-title">Produção Espaço Superare 1</h3>
-          <p id="proj2-desc">Descrição breve da produção ou atividade do Espaço Superare.</p>
-        </div>
-      </div>
-      <div class="projeto-card fade-up visible" style="transition-delay:0.2s">
-        <div class="projeto-media">
-          <div class="projeto-media-placeholder"><div class="big-icon">🎨</div><div>Foto / Vídeo do Projeto</div></div>
-        </div>
-        <div class="projeto-info">
-          <span class="projeto-tag">Destaque</span>
-          <h3 id="proj3-title">Projeto em Destaque</h3>
-          <p id="proj3-desc">Descrição breve de um projeto especial ou trabalho relevante.</p>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div class="section-inner">
+    <div class="section-tag" style="color:rgba(94,23,235,0.9)">Projetos &amp; Produções</div>
+    <h2 class="section-title" style="color:white">Meus <em>trabalhos</em><br>em destaque</h2>
+    <p class="section-desc">Produções acadêmicas, educacionais e artísticas que refletem minha jornada e propósito.</p>
+    <div class="projetos-nav">
+      <a href="javascript:void(0)" class="proj-tab active" onclick="openPage('disciplinas')">Faculdade de Pedagogia</a>
+      <a href="javascript:void(0)" class="proj-tab active" onclick="openPage('superare')">Espaço Superare</a>
+    </div>
+    <div class="projetos-grid">
+      <div class="projeto-card fade-up visible">
+        <div class="projeto-media">
+          <!-- <img src="projeto1.jpg" alt=""> -->
+          <div class="projeto-media-placeholder"><div class="big-icon"> </div><div>Foto / Vídeo do Projeto</div></div>
+        </div>
+        <div class="projeto-info">
+          <span class="projeto-tag">Destaque</span>
+          <h3 id="proj1-title">Nome da Disciplina / Projeto 1</h3>
+          <p id="proj1-desc">Descrição breve do projeto ou trabalho desenvolvido nesta disciplina.</p>
+        </div>
+      </div>
+      <div class="projeto-card fade-up visible" style="transition-delay:0.1s">
+        <div class="projeto-media">
+          <div class="projeto-media-placeholder"><div class="big-icon"> </div><div>Foto / Vídeo do Projeto</div></div>
+        </div>
+        <div class="projeto-info">
+          <span class="projeto-tag">Destaque</span>
+          <h3 id="proj2-title">Produção Espaço Superare 1</h3>
+          <p id="proj2-desc">Descrição breve da produção ou atividade do Espaço Superare.</p>
+        </div>
+      </div>
+      <div class="projeto-card fade-up visible" style="transition-delay:0.2s">
+        <div class="projeto-media">
+          <div class="projeto-media-placeholder"><div class="big-icon"> </div><div>Foto / Vídeo do Projeto</div></div>
+        </div>
+        <div class="projeto-info">
+          <span class="projeto-tag">Destaque</span>
+          <h3 id="proj3-title">Projeto em Destaque</h3>
+          <p id="proj3-desc">Descrição breve de um projeto especial ou trabalho relevante.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ═══════════════ CONTATO ═══════════════ -->
 <section id="contato">
-  <div class="section-inner">
-    <div class="section-tag">Redes &amp; Contato</div>
-    <h2 class="section-title">Contatos <em></em></h2>
-    <div class="contato-grid">
-      <div class="contato-cards fade-up visible">
-        <a href="tel:+5500000000000" class="contato-card" id="card-tel">
-          <div class="contato-icon">📞</div>
-          <div>
-            <div class="contato-label">Celular</div>
-            <div class="contato-value" id="contato-tel">+55 (11) 97611-3363</div>
-          </div>
-        </a>
-        <a href="mailto:seu@email.com" class="contato-card" id="card-email">
-          <div class="contato-icon">✉️</div>
-          <div>
-            <div class="contato-label">E-mail</div>
-            <div class="contato-value" id="contato-email">contatomaricamargo@gmail.com</div>
-          </div>
-        </a>
-        <a href="https://instagram.com/seuinstagram" target="_blank" class="contato-card" id="card-insta">
-          <div class="contato-icon">📸</div>
-          <div>
-            <div class="contato-label">Instagram</div>
-            <div class="contato-value" id="contato-insta">@maricamargo._</div>
-          </div>
-        </a>
-        <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:20px;text-align:center;color:rgba(255,255,255,0.3);font-size:0.8rem;">
-          📍 Incorpore aqui um mapa ou widget de localização
-        </div>
-      </div>
-      <div class="contato-form-area fade-up visible" style="transition-delay:0.15s">
-        <h3>Envie uma<br><em>mensagem</em></h3>
-        <div class="form-group"><input type="text" placeholder="Seu nome"></div>
-        <div class="form-group"><input type="email" placeholder="Seu e-mail"></div>
-        <div class="form-group"><textarea rows="4" placeholder="Sua mensagem..."></textarea></div>
-        <button class="btn-white" onclick="alert('Mensagem enviada! Configure um backend ou serviço de e-mail para receber mensagens.')">Enviar mensagem →</button>
-      </div>
-    </div>
-  </div>
+  <div class="section-inner">
+    <div class="section-tag">Redes &amp; Contato</div>
+    <h2 class="section-title">Contatos <em></em></h2>
+    <div class="contato-grid">
+      <div class="contato-cards fade-up visible">
+        <a href="tel:+5500000000000" class="contato-card" id="card-tel">
+          <div class="contato-icon"> </div>
+          <div>
+            <div class="contato-label">Celular</div>
+            <div class="contato-value" id="contato-tel">+55 (11) 97611-3363</div>
+          </div>
+        </a>
+        <a href="mailto:seu@email.com" class="contato-card" id="card-email">
+          <div class="contato-icon"> </div>
+          <div>
+            <div class="contato-label">E-mail</div>
+            <div class="contato-value" id="contato-email">contatomaricamargo@gmail.com</div>
+          </div>
+        </a>
+        <a href="https://instagram.com/seuinstagram" target="_blank" class="contato-card" id="card-insta">
+          <div class="contato-icon"> </div>
+          <div>
+            <div class="contato-label">Instagram</div>
+            <div class="contato-value" id="contato-insta">@maricamargo._</div>
+          </div>
+        </a>
+        <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:20px;text-align:center;color:rgba(255,255,255,0.3);font-size:0.8rem;">
+          Incorpore aqui um mapa ou widget de localização
+        </div>
+      </div>
+      <div class="contato-form-area fade-up visible" style="transition-delay:0.15s">
+        <h3>Envie uma<br><em>mensagem</em></h3>
+        <div class="form-group"><input type="text" placeholder="Seu nome"></div>
+        <div class="form-group"><input type="email" placeholder="Seu e-mail"></div>
+        <div class="form-group"><textarea rows="4" placeholder="Sua mensagem..."></textarea></div>
+        <button class="btn-white" onclick="alert('Mensagem enviada! Configure um backend ou serviço de e-mail para receber mensagens.')">Enviar mensagem →</button>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">✦ <span>Mariana</span>Camargo</div>
-  <div class="footer-copy">© 2026 · Todos os direitos reservados</div>
-  <div class="footer-links">
-    <a href="#home">Início</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#projetos">Projetos</a>
-    <a href="#contato">Contato</a>
-  </div>
+  <div class="footer-logo">✦ <span>Mariana</span>Camargo</div>
+  <div class="footer-copy">© 2026 · Todos os direitos reservados</div>
+  <div class="footer-links">
+    <a href="#home">Início</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#projetos">Projetos</a>
+    <a href="#contato">Contato</a>
+  </div>
 </footer>
 
 <!-- ═══════════════════════════════════════════════
-     PÁGINA: DISCIPLINAS DA FACULDADE
+     PÁGINA: DISCIPLINAS DA FACULDADE
 ════════════════════════════════════════════════ -->
 <div class="page-overlay" id="page-disciplinas">
-  <div class="page-inner">
-    <button class="page-back" onclick="closePage('disciplinas')">← Voltar</button>
-    <div class="section-tag" style="color:rgba(94,23,235,0.9)">Projetos &amp; Produções</div>
-    <h1 class="page-title">Faculdade de <em>Pedagogia</em></h1>
-    <p class="page-subtitle">Trabalhos, pesquisas e produções desenvolvidos ao longo da graduação.</p>
-    <div class="media-zone" style="aspect-ratio:16/6;">
-      <div class="media-placeholder">
-        <div class="icon">🎬</div>
-        <p>Cole aqui um vídeo geral, banner ou apresentação das disciplinas</p>
-      </div>
-    </div>
-    <div class="disciplinas-grid">
-      <div class="disciplina-card">
-        <div class="disc-header">
-          <h3 id="disc1-title">Disciplina 1 — Nome</h3>
-          <p id="disc1-prof">Professor(a) responsável · Semestre/Ano</p>
-        </div>
-        <div class="disc-body">
-          <div class="disc-media">
-            <div style="color:rgba(255,255,255,0.2);text-align:center;font-size:0.75rem;padding:20px;">📷 Foto ou vídeo do projeto</div>
-          </div>
-          <p class="disc-desc" id="disc1-desc">Descrição do projeto desenvolvido nesta disciplina, atividades realizadas e aprendizados obtidos.</p>
-        </div>
-      </div>
-      <div class="disciplina-card">
-        <div class="disc-header">
-          <h3 id="disc2-title">Disciplina 2 — Nome</h3>
-          <p id="disc2-prof">Professor(a) responsável · Semestre/Ano</p>
-        </div>
-        <div class="disc-body">
-          <div class="disc-media">
-            <div style="color:rgba(255,255,255,0.2);text-align:center;font-size:0.75rem;padding:20px;">📷 Foto ou vídeo do projeto</div>
-          </div>
-          <p class="disc-desc" id="disc2-desc">Descrição do projeto desenvolvido nesta disciplina.</p>
-        </div>
-      </div>
-      <div class="disciplina-card">
-        <div class="disc-header">
-          <h3 id="disc3-title">Disciplina 3 — Nome</h3>
-          <p id="disc3-prof">Professor(a) responsável · Semestre/Ano</p>
-        </div>
-        <div class="disc-body">
-          <div class="disc-media">
-            <div style="color:rgba(255,255,255,0.2);text-align:center;font-size:0.75rem;padding:20px;">📷 Foto ou vídeo do projeto</div>
-          </div>
-          <p class="disc-desc" id="disc3-desc">Descrição do projeto desenvolvido nesta disciplina.</p>
-        </div>
-      </div>
-      <div class="disciplina-card">
-        <div class="disc-header">
-          <h3 id="disc4-title">Disciplina 4 — Nome</h3>
-          <p id="disc4-prof">Professor(a) responsável · Semestre/Ano</p>
-        </div>
-        <div class="disc-body">
-          <div class="disc-media">
-            <div style="color:rgba(255,255,255,0.2);text-align:center;font-size:0.75rem;padding:20px;">📷 Foto ou vídeo do projeto</div>
-          </div>
-          <p class="disc-desc" id="disc4-desc">Descrição do projeto desenvolvido nesta disciplina.</p>
-        </div>
-      </div>
-    </div>
-    <div style="margin-top:40px;">
-      <div class="media-zone">
-        <div class="media-placeholder">
-          <div class="icon">🎥</div>
-          <p>Embed de vídeo adicional — YouTube, Vimeo, Drive</p>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div class="page-inner">
+    <button class="page-back" onclick="closePage('disciplinas')">← Voltar</button>
+    <div class="section-tag" style="color:rgba(94,23,235,0.9)">Projetos &amp; Produções</div>
+    <h1 class="page-title">Faculdade de <em>Pedagogia</em></h1>
+    <p class="page-subtitle">Trabalhos, pesquisas e produções desenvolvidos ao longo da graduação.</p>
+    <div class="media-zone" style="aspect-ratio:16/6;">
+      <div class="media-placeholder">
+        <div class="icon"> </div>
+        <p>Cole aqui um vídeo geral, banner ou apresentação das disciplinas</p>
+      </div>
+    </div>
+    <div class="disciplinas-grid">
+      <div class="disciplina-card">
+        <div class="disc-header">
+          <h3 id="disc1-title">Disciplina 1 — Nome</h3>
+          <p id="disc1-prof">Professor(a) responsável · Semestre/Ano</p>
+        </div>
+        <div class="disc-body">
+          <div class="disc-media">
+            <div style="color:rgba(255,255,255,0.2);text-align:center;font-size:0.75rem;padding:20px;"> Foto ou vídeo do projeto</div>
+          </div>
+          <p class="disc-desc" id="disc1-desc">Descrição do projeto desenvolvido nesta disciplina, atividades realizadas e aprendizados obtidos.</p>
+        </div>
+      </div>
+      <div class="disciplina-card">
+        <div class="disc-header">
+          <h3 id="disc2-title">Disciplina 2 — Nome</h3>
+          <p id="disc2-prof">Professor(a) responsável · Semestre/Ano</p>
+        </div>
+        <div class="disc-body">
+          <div class="disc-media">
+            <div style="color:rgba(255,255,255,0.2);text-align:center;font-size:0.75rem;padding:20px;"> Foto ou vídeo do projeto</div>
+          </div>
+          <p class="disc-desc" id="disc2-desc">Descrição do projeto desenvolvido nesta disciplina.</p>
+        </div>
+      </div>
+      <div class="disciplina-card">
+        <div class="disc-header">
+          <h3 id="disc3-title">Disciplina 3 — Nome</h3>
+          <p id="disc3-prof">Professor(a) responsável · Semestre/Ano</p>
+        </div>
+        <div class="disc-body">
+          <div class="disc-media">
+            <div style="color:rgba(255,255,255,0.2);text-align:center;font-size:0.75rem;padding:20px;"> Foto ou vídeo do projeto</div>
+          </div>
+          <p class="disc-desc" id="disc3-desc">Descrição do projeto desenvolvido nesta disciplina.</p>
+        </div>
+      </div>
+      <div class="disciplina-card">
+        <div class="disc-header">
+          <h3 id="disc4-title">Disciplina 4 — Nome</h3>
+          <p id="disc4-prof">Professor(a) responsável · Semestre/Ano</p>
+        </div>
+        <div class="disc-body">
+          <div class="disc-media">
+            <div style="color:rgba(255,255,255,0.2);text-align:center;font-size:0.75rem;padding:20px;"> Foto ou vídeo do projeto</div>
+          </div>
+          <p class="disc-desc" id="disc4-desc">Descrição do projeto desenvolvido nesta disciplina.</p>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:40px;">
+      <div class="media-zone">
+        <div class="media-placeholder">
+          <div class="icon"> </div>
+          <p>Embed de vídeo adicional — YouTube, Vimeo, Drive</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- ═══════════════════════════════════════════════
-     PÁGINA: ESPAÇO SUPERARE
+     PÁGINA: ESPAÇO SUPERARE
 ════════════════════════════════════════════════ -->
 <div class="page-overlay" id="page-superare">
-  <div class="page-inner">
-    <button class="page-back" onclick="closePage('superare')">← Voltar</button>
-    <div class="section-tag" style="color:rgba(94,23,235,0.9)">Projetos &amp; Produções</div>
-    <h1 class="page-title"><em>Espaço</em> Superare</h1>
-    <p class="page-subtitle" id="superare-sub">A minha empresa de educação e aulas particulares.</p>
-    <div class="media-zone" style="aspect-ratio:16/6;">
-      <div class="media-placeholder">
-        <div class="icon">✨</div>
-        <p>Vídeo institucional ou banner do Espaço Superare</p>
-      </div>
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:40px;">
-      <div class="projeto-card">
-        <div class="projeto-media">
-          <div class="projeto-media-placeholder"><div class="big-icon">🌟</div><div>Foto / Vídeo</div></div>
-        </div>
-        <div class="projeto-info">
-          <span class="projeto-tag">Superare</span>
-          <h3 id="sup1-title">Produção / Atividade 1</h3>
-          <p id="sup1-desc">Descrição da produção ou atividade.</p>
-        </div>
-      </div>
-      <div class="projeto-card">
-        <div class="projeto-media">
-          <div class="projeto-media-placeholder"><div class="big-icon">🎭</div><div>Foto / Vídeo</div></div>
-        </div>
-        <div class="projeto-info">
-          <span class="projeto-tag">Superare</span>
-          <h3 id="sup2-title">Produção / Atividade 2</h3>
-          <p id="sup2-desc">Descrição da produção ou atividade.</p>
-        </div>
-      </div>
-      <div class="projeto-card">
-        <div class="projeto-media">
-          <div class="projeto-media-placeholder"><div class="big-icon">🎨</div><div>Foto / Vídeo</div></div>
-        </div>
-        <div class="projeto-info">
-          <span class="projeto-tag">Superare</span>
-          <h3 id="sup3-title">Produção / Atividade 3</h3>
-          <p id="sup3-desc">Descrição da produção ou atividade.</p>
-        </div>
-      </div>
-    </div>
-    <div style="margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:20px;">
-      <div class="media-zone">
-        <div class="media-placeholder"><div class="icon">📸</div><p>Galeria de fotos ou vídeo</p></div>
-      </div>
-      <div class="media-zone">
-        <div class="media-placeholder"><div class="icon">🎬</div><p>Embed de vídeo — YouTube / Vimeo</p></div>
-      </div>
-    </div>
-  </div>
+  <div class="page-inner">
+    <button class="page-back" onclick="closePage('superare')">← Voltar</button>
+    <div class="section-tag" style="color:rgba(94,23,235,0.9)">Projetos &amp; Produções</div>
+    <h1 class="page-title"><em>Espaço</em> Superare</h1>
+    <p class="page-subtitle" id="superare-sub">A minha empresa de educação e aulas particulares.</p>
+    <div class="media-zone" style="aspect-ratio:16/6;">
+      <div class="media-placeholder">
+        <div class="icon"> </div>
+        <p>Vídeo institucional ou banner do Espaço Superare</p>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:40px;">
+      <div class="projeto-card">
+        <div class="projeto-media">
+          <div class="projeto-media-placeholder"><div class="big-icon"> </div><div>Foto / Vídeo</div></div>
+        </div>
+        <div class="projeto-info">
+          <span class="projeto-tag">Superare</span>
+          <h3 id="sup1-title">Produção / Atividade 1</h3>
+          <p id="sup1-desc">Descrição da produção ou atividade.</p>
+        </div>
+      </div>
+      <div class="projeto-card">
+        <div class="projeto-media">
+          <div class="projeto-media-placeholder"><div class="big-icon"> </div><div>Foto / Vídeo</div></div>
+        </div>
+        <div class="projeto-info">
+          <span class="projeto-tag">Superare</span>
+          <h3 id="sup2-title">Produção / Atividade 2</h3>
+          <p id="sup2-desc">Descrição da produção ou atividade.</p>
+        </div>
+      </div>
+      <div class="projeto-card">
+        <div class="projeto-media">
+          <div class="projeto-media-placeholder"><div class="big-icon"> </div><div>Foto / Vídeo</div></div>
+        </div>
+        <div class="projeto-info">
+          <span class="projeto-tag">Superare</span>
+          <h3 id="sup3-title">Produção / Atividade 3</h3>
+          <p id="sup3-desc">Descrição da produção ou atividade.</p>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+      <div class="media-zone">
+        <div class="media-placeholder"><div class="icon"> </div><p>Galeria de fotos ou vídeo</p></div>
+      </div>
+      <div class="media-zone">
+        <div class="media-placeholder"><div class="icon"> </div><p>Embed de vídeo — YouTube / Vimeo</p></div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- ═══════════════════════════════════════════════
-     ADMIN LOGIN
+     ADMIN LOGIN
 ════════════════════════════════════════════════ -->
 <div class="admin-overlay" id="adminOverlay">
-  <div class="admin-modal">
-    <button class="admin-close" onclick="closeAdminLogin()">×</button>
-    <h2>Admin ✦</h2>
-    <p>Entre com suas credenciais para editar o site.</p>
-    <div class="admin-error" id="adminError" style="display: none;">Usuário ou senha incorretos.</div>
-    <div class="admin-field">
-      <label>Usuário</label>
-      <input type="text" id="adminUser" placeholder="admin">
-    </div>
-    <div class="admin-field">
-      <label>Senha</label>
-      <input type="password" id="adminPass" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()">
-    </div>
-    <br>
-    <button class="btn-primary" onclick="doLogin()" style="width:100%;justify-content:center;">Entrar →</button>
-    <p style="font-size:0.72rem;color:#aaa;margin-top:16px;text-align:center;">
-      Usuário: <strong>admin</strong> · Senha: <strong>superare2025</strong>
-    </p>
-  </div>
+  <div class="admin-modal">
+    <button class="admin-close" onclick="closeAdminLogin()">×</button>
+    <h2>Admin ✦</h2>
+    <p>Entre com suas credenciais para editar o site.</p>
+    <div class="admin-error" id="adminError" style="display: none;">Usuário ou senha incorretos.</div>
+    <div class="admin-field">
+      <label>Usuário</label>
+      <input type="text" id="adminUser" placeholder="admin">
+    </div>
+    <div class="admin-field">
+      <label>Senha</label>
+      <input type="password" id="adminPass" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()">
+    </div>
+    <br>
+    <button class="btn-primary" onclick="doLogin()" style="width:100%;justify-content:center;">Entrar →</button>
+    <p style="font-size:0.72rem;color:#aaa;margin-top:16px;text-align:center;">
+      Usuário: <strong>admin</strong> · Senha: <strong>superare2025</strong>
+    </p>
+  </div>
 </div>
 
 <!-- ═══════════════════════════════════════════════
-     ADMIN PANEL
+     ADMIN PANEL
 ════════════════════════════════════════════════ -->
 <div class="admin-panel" id="adminPanel">
-  <div class="admin-panel-inner">
-    <button class="admin-back" onclick="closeAdminPanel()">← Fechar painel</button>
-    <h1 class="admin-panel-title">Painel de <em>Edição</em></h1>
-    <p class="admin-panel-sub">Edite qualquer seção do site. Ao terminar, clique em "Salvar e Baixar" para gerar o arquivo HTML atualizado.</p>
+  <div class="admin-panel-inner">
+    <button class="admin-back" onclick="closeAdminPanel()">← Fechar painel</button>
+    <h1 class="admin-panel-title">Painel de <em>Edição</em></h1>
+    <p class="admin-panel-sub">Edite qualquer seção do site. Ao terminar, clique em "Salvar e Baixar" para gerar o arquivo HTML atualizado.</p>
 
-    <div class="admin-save-all-bar">
-      <p>💾 &nbsp;Todas as alterações são aplicadas ao vivo. Baixe o HTML atualizado para salvar permanentemente.</p>
-      <button class="btn-save-all" onclick="saveAndDownload()">⬇ Salvar e Baixar HTML</button>
-    </div>
+    <div class="admin-save-all-bar">
+      <p> &nbsp;Todas as alterações são aplicadas ao vivo. Baixe o HTML atualizado para salvar permanentemente.</p>
+      <button class="btn-save-all" onclick="saveAndDownload()">⬇ Salvar e Baixar HTML</button>
+    </div>
 
-    <div class="admin-grid">
-      <div class="admin-card" onclick="openEdit('hero')">
-        <div class="admin-card-icon">🏠</div>
-        <h3>Página Inicial</h3>
-        <p>Subtítulo e descrição do hero</p>
-      </div>
-      <div class="admin-card" onclick="openEdit('bio')">
-        <div class="admin-card-icon">👤</div>
-        <h3>Sobre Mim</h3>
-        <p>Biografia e citação</p>
-      </div>
-      <div class="admin-card" onclick="openEdit('formacao')">
-        <div class="admin-card-icon">🎓</div>
-        <h3>Formação Acadêmica</h3>
-        <p>Curso, instituição e período</p>
-      </div>
-      <div class="admin-card" onclick="openEdit('experiencias')">
-        <div class="admin-card-icon">💼</div>
-        <h3>Experiências (4)</h3>
-        <p>Cargos, locais e períodos</p>
-      </div>
-      <div class="admin-card" onclick="openEdit('certificados')">
-        <div class="admin-card-icon">🏆</div>
-        <h3>Certificados (10)</h3>
-        <p>Nomes e organizações</p>
-      </div>
-      <div class="admin-card" onclick="openEdit('linguas')">
-        <div class="admin-card-icon">🌍</div>
-        <h3>Línguas</h3>
-        <p>Idiomas e níveis de proficiência</p>
-      </div>
-      <div class="admin-card" onclick="openEdit('projetos')">
-        <div class="admin-card-icon">📚</div>
-        <h3>Projetos em Destaque</h3>
-        <p>Títulos e descrições dos cards</p>
-      </div>
-      <div class="admin-card" onclick="openEdit('contato')">
-        <div class="admin-card-icon">📞</div>
-        <h3>Contato</h3>
-        <p>Telefone, e-mail e Instagram</p>
-      </div>
-    </div>
+    <div class="admin-grid">
+      <div class="admin-card" onclick="openEdit('hero')">
+        <div class="admin-card-icon"> </div>
+        <h3>Página Inicial</h3>
+        <p>Subtítulo e descrição do hero</p>
+      </div>
+      <div class="admin-card" onclick="openEdit('bio')">
+        <div class="admin-card-icon"> </div>
+        <h3>Sobre Mim</h3>
+        <p>Biografia e citação</p>
+      </div>
+      <div class="admin-card" onclick="openEdit('formacao')">
+        <div class="admin-card-icon"> </div>
+        <h3>Formação Acadêmica</h3>
+        <p>Curso, instituição e período</p>
+      </div>
+      <div class="admin-card" onclick="openEdit('experiencias')">
+        <div class="admin-card-icon"> </div>
+        <h3>Experiências (4)</h3>
+        <p>Cargos, locais e períodos</p>
+      </div>
+      <div class="admin-card" onclick="openEdit('certificados')">
+        <div class="admin-card-icon"> </div>
+        <h3>Certificados (10)</h3>
+        <p>Nomes e organizações</p>
+      </div>
+      <div class="admin-card" onclick="openEdit('linguas')">
+        <div class="admin-card-icon"> </div>
+        <h3>Línguas</h3>
+        <p>Idiomas e níveis de proficiência</p>
+      </div>
+      <div class="admin-card" onclick="openEdit('projetos')">
+        <div class="admin-card-icon"> </div>
+        <h3>Projetos em Destaque</h3>
+        <p>Títulos e descrições dos cards</p>
+      </div>
+      <div class="admin-card" onclick="openEdit('contato')">
+        <div class="admin-card-icon"> </div>
+        <h3>Contato</h3>
+        <p>Telefone, e-mail e Instagram</p>
+      </div>
+    </div>
 
-    <!-- ── EDIT: HERO ── -->
-    <div class="admin-section-edit" id="edit-hero">
-      <div class="edit-section-title">Página Inicial</div>
-      <div class="edit-field"><label>Subtítulo (itálico abaixo do nome)</label><input id="e-hero-sub" type="text"></div>
-      <div class="edit-field"><label>Descrição</label><textarea id="e-hero-desc" rows="3"></textarea></div>
-      <div class="edit-actions">
-        <button class="edit-save" onclick="saveHero()">Aplicar alterações</button>
-        <button class="edit-cancel" onclick="closeEdit('hero')">Cancelar</button>
-      </div>
-    </div>
+    <!-- ── EDIT: HERO ── -->
+    <div class="admin-section-edit" id="edit-hero">
+      <div class="edit-section-title">Página Inicial</div>
+      <div class="edit-field"><label>Subtítulo (itálico abaixo do nome)</label><input id="e-hero-sub" type="text"></div>
+      <div class="edit-field"><label>Descrição</label><textarea id="e-hero-desc" rows="3"></textarea></div>
+      <div class="edit-actions">
+        <button class="edit-save" onclick="saveHero()">Aplicar alterações</button>
+        <button class="edit-cancel" onclick="closeEdit('hero')">Cancelar</button>
+      </div>
+    </div>
 
-    <!-- ── EDIT: BIO ── -->
-    <div class="admin-section-edit" id="edit-bio">
-      <div class="edit-section-title">Sobre Mim</div>
-      <div class="edit-field"><label>Biografia</label><textarea id="e-bio" rows="7"></textarea></div>
-      <div class="edit-field"><label>Citação / Quote</label><input id="e-quote" type="text"></div>
-      <div class="edit-actions">
-        <button class="edit-save" onclick="saveBio()">Aplicar alterações</button>
-        <button class="edit-cancel" onclick="closeEdit('bio')">Cancelar</button>
-      </div>
-    </div>
+    <!-- ── EDIT: BIO ── -->
+    <div class="admin-section-edit" id="edit-bio">
+      <div class="edit-section-title">Sobre Mim</div>
+      <div class="edit-field"><label>Biografia</label><textarea id="e-bio" rows="7"></textarea></div>
+      <div class="edit-field"><label>Citação / Quote</label><input id="e-quote" type="text"></div>
+      <div class="edit-actions">
+        <button class="edit-save" onclick="saveBio()">Aplicar alterações</button>
+        <button class="edit-cancel" onclick="closeEdit('bio')">Cancelar</button>
+      </div>
+    </div>
 
-    <!-- ── EDIT: FORMAÇÃO ── -->
-    <div class="admin-section-edit" id="edit-formacao">
-      <div class="edit-section-title">Formação Acadêmica</div>
-      <div class="edit-field"><label>Curso / Título</label><input id="e-form-title" type="text"></div>
-      <div class="edit-field"><label>Instituição</label><input id="e-form-inst" type="text"></div>
-      <div class="edit-field"><label>Período</label><input id="e-form-period" type="text" placeholder="ex: 2019 — 2023"></div>
-      <div class="edit-actions">
-        <button class="edit-save" onclick="saveFormacao()">Aplicar alterações</button>
-        <button class="edit-cancel" onclick="closeEdit('formacao')">Cancelar</button>
-      </div>
-    </div>
+    <!-- ── EDIT: FORMAÇÃO ── -->
+    <div class="admin-section-edit" id="edit-formacao">
+      <div class="edit-section-title">Formação Acadêmica</div>
+      <div class="edit-field"><label>Curso / Título</label><input id="e-form-title" type="text"></div>
+      <div class="edit-field"><label>Instituição</label><input id="e-form-inst" type="text"></div>
+      <div class="edit-field"><label>Período</label><input id="e-form-period" type="text" placeholder="ex: 2019 — 2023"></div>
+      <div class="edit-actions">
+        <button class="edit-save" onclick="saveFormacao()">Aplicar alterações</button>
+        <button class="edit-cancel" onclick="closeEdit('formacao')">Cancelar</button>
+      </div>
+    </div>
 
-    <!-- ── EDIT: EXPERIÊNCIAS ── -->
-    <div class="admin-section-edit" id="edit-experiencias">
-      <div class="edit-section-title">Experiências Profissionais</div>
-      <div id="exp-edit-blocks">
-        <!-- gerado dinamicamente -->
-      </div>
-      <div class="edit-actions">
-        <button class="edit-save" onclick="saveExp()">Aplicar alterações</button>
-        <button class="edit-cancel" onclick="closeEdit('experiencias')">Cancelar</button>
-      </div>
-    </div>
+    <!-- ── EDIT: EXPERIÊNCIAS ── -->
+    <div class="admin-section-edit" id="edit-experiencias">
+      <div class="edit-section-title">Experiências Profissionais</div>
+      <div id="exp-edit-blocks">
+        <!-- gerado dinamicamente -->
+      </div>
+      <div class="edit-actions">
+        <button class="edit-save" onclick="saveExp()">Aplicar alterações</button>
+        <button class="edit-cancel" onclick="closeEdit('experiencias')">Cancelar</button>
+      </div>
+    </div>
 
-    <!-- ── EDIT: CERTIFICADOS ── -->
-    <div class="admin-section-edit" id="edit-certificados">
-      <div class="edit-section-title">Licenças e Certificados</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;" id="cert-edit-grid"></div>
-      <div class="edit-actions">
-        <button class="edit-save" onclick="saveCerts()">Aplicar alterações</button>
-        <button class="edit-cancel" onclick="closeEdit('certificados')">Cancelar</button>
-      </div>
-    </div>
+    <!-- ── EDIT: CERTIFICADOS ── -->
+    <div class="admin-section-edit" id="edit-certificados">
+      <div class="edit-section-title">Licenças e Certificados</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;" id="cert-edit-grid"></div>
+      <div class="edit-actions">
+        <button class="edit-save" onclick="saveCerts()">Aplicar alterações</button>
+        <button class="edit-cancel" onclick="closeEdit('certificados')">Cancelar</button>
+      </div>
+    </div>
 
-    <!-- ── EDIT: LÍNGUAS ── -->
-    <div class="admin-section-edit" id="edit-linguas">
-      <div class="edit-section-title">Línguas</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
-        <div>
-          <div class="edit-field"><label>Língua 1</label><input id="e-lang1" type="text"></div>
-          <div class="edit-field"><label>Nível</label><input id="e-lang1-level" type="text" placeholder="ex: Nativo"></div>
-          <div class="edit-field"><label>Barra de proficiência (0–100%)</label><input id="e-lang1-pct" type="number" min="0" max="100"></div>
-        </div>
-        <div>
-          <div class="edit-field"><label>Língua 2</label><input id="e-lang2" type="text"></div>
-          <div class="edit-field"><label>Nível</label><input id="e-lang2-level" type="text" placeholder="ex: Avançado"></div>
-          <div class="edit-field"><label>Barra de proficiência (0–100%)</label><input id="e-lang2-pct" type="number" min="0" max="100"></div>
-        </div>
-      </div>
-      <div class="edit-actions">
-        <button class="edit-save" onclick="saveLangs()">Aplicar alterações</button>
-        <button class="edit-cancel" onclick="closeEdit('linguas')">Cancelar</button>
-      </div>
-    </div>
+    <!-- ── EDIT: LÍNGUAS ── -->
+    <div class="admin-section-edit" id="edit-linguas">
+      <div class="edit-section-title">Línguas</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+        <div>
+          <div class="edit-field"><label>Língua 1</label><input id="e-lang1" type="text"></div>
+          <div class="edit-field"><label>Nível</label><input id="e-lang1-level" type="text" placeholder="ex: Nativo"></div>
+          <div class="edit-field"><label>Barra de proficiência (0–100%)</label><input id="e-lang1-pct" type="number" min="0" max="100"></div>
+        </div>
+        <div>
+          <div class="edit-field"><label>Língua 2</label><input id="e-lang2" type="text"></div>
+          <div class="edit-field"><label>Nível</label><input id="e-lang2-level" type="text" placeholder="ex: Avançado"></div>
+          <div class="edit-field"><label>Barra de proficiência (0–100%)</label><input id="e-lang2-pct" type="number" min="0" max="100"></div>
+        </div>
+      </div>
+      <div class="edit-actions">
+        <button class="edit-save" onclick="saveLangs()">Aplicar alterações</button>
+        <button class="edit-cancel" onclick="closeEdit('linguas')">Cancelar</button>
+      </div>
+    </div>
 
-    <!-- ── EDIT: PROJETOS ── -->
-    <div class="admin-section-edit" id="edit-projetos">
-      <div class="edit-section-title">Projetos em Destaque</div>
-      <div id="proj-edit-blocks">
-        <!-- gerado dinamicamente -->
-      </div>
-      <div class="edit-actions">
-        <button class="edit-save" onclick="saveProjs()">Aplicar alterações</button>
-        <button class="edit-cancel" onclick="closeEdit('projetos')">Cancelar</button>
-      </div>
-    </div>
+    <!-- ── EDIT: PROJETOS ── -->
+    <div class="admin-section-edit" id="edit-projetos">
+      <div class="edit-section-title">Projetos em Destaque</div>
+      <div id="proj-edit-blocks">
+        <!-- gerado dinamicamente -->
+      </div>
+      <div class="edit-actions">
+        <button class="edit-save" onclick="saveProjs()">Aplicar alterações</button>
+        <button class="edit-cancel" onclick="closeEdit('projetos')">Cancelar</button>
+      </div>
+    </div>
 
-    <!-- ── EDIT: CONTATO ── -->
-    <div class="admin-section-edit" id="edit-contato">
-      <div class="edit-section-title">Contato</div>
-      <div class="edit-field"><label>Telefone</label><input id="e-tel" type="text" placeholder="(00) 00000-0000"></div>
-      <div class="edit-field"><label>E-mail</label><input id="e-email" type="email" placeholder="seu@email.com"></div>
-      <div class="edit-field"><label>Instagram (com @)</label><input id="e-insta" type="text" placeholder="@seuinstagram"></div>
-      <div class="edit-actions">
-        <button class="edit-save" onclick="saveContato()">Aplicar alterações</button>
-        <button class="edit-cancel" onclick="closeEdit('contato')">Cancelar</button>
-      </div>
-    </div>
+    <!-- ── EDIT: CONTATO ── -->
+    <div class="admin-section-edit" id="edit-contato">
+      <div class="edit-section-title">Contato</div>
+      <div class="edit-field"><label>Telefone</label><input id="e-tel" type="text" placeholder="(00) 00000-0000"></div>
+      <div class="edit-field"><label>E-mail</label><input id="e-email" type="email" placeholder="seu@email.com"></div>
+      <div class="edit-field"><label>Instagram (com @)</label><input id="e-insta" type="text" placeholder="@seuinstagram"></div>
+      <div class="edit-actions">
+        <button class="edit-save" onclick="saveContato()">Aplicar alterações</button>
+        <button class="edit-cancel" onclick="closeEdit('contato')">Cancelar</button>
+      </div>
+    </div>
 
-  </div>
+  </div>
 </div>
 
 <!-- ═══════════ JAVASCRIPT ═══════════ -->
 <script>
 // ── NAV SCROLL
 window.addEventListener('scroll', () => {
-  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
 });
 
 // ── FADE ON SCROLL
 const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.12 });
 document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 
 // ── ACCORDION
 function toggleAccordion(header) {
-  const body = header.nextElementSibling;
-  const isOpen = body.classList.contains('open');
-  document.querySelectorAll('.accordion-body').forEach(b => b.classList.remove('open'));
-  document.querySelectorAll('.accordion-header').forEach(h => h.classList.remove('active'));
-  if (!isOpen) { body.classList.add('open'); header.classList.add('active'); }
+  const body = header.nextElementSibling;
+  const isOpen = body.classList.contains('open');
+  document.querySelectorAll('.accordion-body').forEach(b => b.classList.remove('open'));
+  document.querySelectorAll('.accordion-header').forEach(h => h.classList.remove('active'));
+  if (!isOpen) { body.classList.add('open'); header.classList.add('active'); }
 }
 
 // ── PAGES
 function openPage(id) {
-  document.getElementById('page-' + id).classList.add('open');
-  document.body.style.overflow = 'hidden';
-  document.getElementById('page-' + id).scrollTop = 0;
+  document.getElementById('page-' + id).classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('page-' + id).scrollTop = 0;
 }
 function closePage(id) {
-  document.getElementById('page-' + id).classList.remove('open');
-  document.body.style.overflow = '';
+  document.getElementById('page-' + id).classList.remove('open');
+  document.body.style.overflow = '';
 }
 
 // ── ADMIN AUTH
@@ -966,218 +970,218 @@ const ADMIN_PASS = 'superare2025';
 let isAdmin = false;
 
 function openAdminLogin() {
-  if (isAdmin) { openAdminPanel(); return; }
-  document.getElementById('adminOverlay').classList.add('open');
-  setTimeout(() => document.getElementById('adminUser').focus(), 200);
+  if (isAdmin) { openAdminPanel(); return; }
+  document.getElementById('adminOverlay').classList.add('open');
+  setTimeout(() => document.getElementById('adminUser').focus(), 200);
 }
 function closeAdminLogin() {
-  document.getElementById('adminOverlay').classList.remove('open');
-  document.getElementById('adminError').style.display = 'none';
-  document.getElementById('adminUser').value = '';
-  document.getElementById('adminPass').value = '';
+  document.getElementById('adminOverlay').classList.remove('open');
+  document.getElementById('adminError').style.display = 'none';
+  document.getElementById('adminUser').value = '';
+  document.getElementById('adminPass').value = '';
 }
 function doLogin() {
-  const u = document.getElementById('adminUser').value.trim();
-  const p = document.getElementById('adminPass').value;
-  if (u === ADMIN_USER && p === ADMIN_PASS) {
-    isAdmin = true;
-    closeAdminLogin();
-    document.getElementById('adminBadge').classList.add('open');
-    openAdminPanel();
-  } else {
-    document.getElementById('adminError').style.display = 'block';
-  }
+  const u = document.getElementById('adminUser').value.trim();
+  const p = document.getElementById('adminPass').value;
+  if (u === ADMIN_USER && p === ADMIN_PASS) {
+    isAdmin = true;
+    closeAdminLogin();
+    document.getElementById('adminBadge').classList.add('open');
+    openAdminPanel();
+  } else {
+    document.getElementById('adminError').style.display = 'block';
+  }
 }
 function logout() {
-  isAdmin = false;
-  document.getElementById('adminBadge').classList.remove('open');
-  closeAdminPanel();
+  isAdmin = false;
+  document.getElementById('adminBadge').classList.remove('open');
+  closeAdminPanel();
 }
 
 // ── ADMIN PANEL
 function openAdminPanel() {
-  document.getElementById('adminPanel').classList.add('open');
-  document.body.style.overflow = 'hidden';
+  document.getElementById('adminPanel').classList.add('open');
+  document.body.style.overflow = 'hidden';
 }
 function closeAdminPanel() {
-  document.getElementById('adminPanel').classList.remove('open');
-  document.body.style.overflow = '';
-  document.querySelectorAll('.admin-section-edit').forEach(e => e.classList.remove('open'));
+  document.getElementById('adminPanel').classList.remove('open');
+  document.body.style.overflow = '';
+  document.querySelectorAll('.admin-section-edit').forEach(e => e.classList.remove('open'));
 }
 
 function openEdit(section) {
-  document.querySelectorAll('.admin-section-edit').forEach(e => e.classList.remove('open'));
-  const el = document.getElementById('edit-' + section);
-  el.classList.add('open');
-  setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
+  document.querySelectorAll('.admin-section-edit').forEach(e => e.classList.remove('open'));
+  const el = document.getElementById('edit-' + section);
+  el.classList.add('open');
+  setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
 
-  if (section === 'hero') {
-    document.getElementById('e-hero-sub').value = document.getElementById('hero-subtitle').textContent;
-    document.getElementById('e-hero-desc').value = document.getElementById('hero-desc').textContent.trim();
-  } else if (section === 'bio') {
-    document.getElementById('e-bio').value = document.getElementById('sobre-bio').textContent.trim();
-    document.getElementById('e-quote').value = document.getElementById('sobre-quote').textContent.replace(/^"|"$/g,'').trim();
-  } else if (section === 'formacao') {
-    document.getElementById('e-form-title').value = document.getElementById('form1-title').textContent;
-    document.getElementById('e-form-inst').value = document.getElementById('form1-inst').textContent;
-    document.getElementById('e-form-period').value = document.getElementById('form1-period').textContent;
-  } else if (section === 'experiencias') {
-    const b = document.getElementById('exp-edit-blocks');
-    b.innerHTML = '';
-    for (let i = 1; i <= 4; i++) {
-      b.innerHTML += `<div class="sub-block">
-        <div class="sub-block-label">Experiência ${i}</div>
-        <div class="edit-field"><label>Cargo / Função</label><input id="e-exp${i}-title" type="text" value="${document.getElementById('exp'+i+'-title').textContent}"></div>
-        <div class="edit-field"><label>Empresa / Instituição</label><input id="e-exp${i}-place" type="text" value="${document.getElementById('exp'+i+'-place').textContent}"></div>
-        <div class="edit-field"><label>Período</label><input id="e-exp${i}-period" type="text" value="${document.getElementById('exp'+i+'-period').textContent}"></div>
-        <div class="edit-field"><label>Descrição</label><textarea id="e-exp${i}-desc" rows="2">${document.getElementById('exp'+i+'-desc').textContent}</textarea></div>
-      </div>`;
-    }
-  } else if (section === 'certificados') {
-    const grid = document.getElementById('cert-edit-grid');
-    grid.innerHTML = '';
-    for (let i = 1; i <= 10; i++) {
-      grid.innerHTML += `<div class="sub-block">
-        <div class="sub-block-label">Certificado ${i}</div>
-        <div class="edit-field"><label>Nome</label><input id="e-cert${i}" type="text" value="${document.getElementById('cert'+i).textContent}"></div>
-        <div class="edit-field"><label>Organização</label><input id="e-cert${i}-org" type="text" value="${document.getElementById('cert'+i+'-org').textContent}"></div>
-      </div>`;
-    }
-  } else if (section === 'linguas') {
-    document.getElementById('e-lang1').value = document.getElementById('lang1').textContent;
-    document.getElementById('e-lang1-level').value = document.getElementById('lang1-level').textContent;
-    document.getElementById('e-lang1-pct').value = parseInt(document.getElementById('lang1-bar').style.width) || 100;
-    document.getElementById('e-lang2').value = document.getElementById('lang2').textContent;
-    document.getElementById('e-lang2-level').value = document.getElementById('lang2-level').textContent;
-    document.getElementById('e-lang2-pct').value = parseInt(document.getElementById('lang2-bar').style.width) || 60;
-  } else if (section === 'projetos') {
-    const b = document.getElementById('proj-edit-blocks');
-    b.innerHTML = '';
-    const labels = ['Disciplina','Superare','Destaque'];
-    for (let i = 1; i <= 3; i++) {
-      b.innerHTML += `<div class="sub-block">
-        <div class="sub-block-label">Projeto ${i} — ${labels[i-1]}</div>
-        <div class="edit-field"><label>Título</label><input id="e-proj${i}-title" type="text" value="${document.getElementById('proj'+i+'-title').textContent}"></div>
-        <div class="edit-field"><label>Descrição</label><textarea id="e-proj${i}-desc" rows="2">${document.getElementById('proj'+i+'-desc').textContent}</textarea></div>
-      </div>`;
-    }
-  } else if (section === 'contato') {
-    document.getElementById('e-tel').value = document.getElementById('contato-tel').textContent;
-    document.getElementById('e-email').value = document.getElementById('contato-email').textContent;
-    document.getElementById('e-insta').value = document.getElementById('contato-insta').textContent;
-  }
+  if (section === 'hero') {
+    document.getElementById('e-hero-sub').value = document.getElementById('hero-subtitle').textContent;
+    document.getElementById('e-hero-desc').value = document.getElementById('hero-desc').textContent.trim();
+  } else if (section === 'bio') {
+    document.getElementById('e-bio').value = document.getElementById('sobre-bio').textContent.trim();
+    document.getElementById('e-quote').value = document.getElementById('sobre-quote').textContent.replace(/^"|"$/g,'').trim();
+  } else if (section === 'formacao') {
+    document.getElementById('e-form-title').value = document.getElementById('form1-title').textContent;
+    document.getElementById('e-form-inst').value = document.getElementById('form1-inst').textContent;
+    document.getElementById('e-form-period').value = document.getElementById('form1-period').textContent;
+  } else if (section === 'experiencias') {
+    const b = document.getElementById('exp-edit-blocks');
+    b.innerHTML = '';
+    for (let i = 1; i <= 4; i++) {
+      b.innerHTML += `<div class="sub-block">
+        <div class="sub-block-label">Experiência ${i}</div>
+        <div class="edit-field"><label>Cargo / Função</label><input id="e-exp${i}-title" type="text" value="${document.getElementById('exp'+i+'-title').textContent}"></div>
+        <div class="edit-field"><label>Empresa / Instituição</label><input id="e-exp${i}-place" type="text" value="${document.getElementById('exp'+i+'-place').textContent}"></div>
+        <div class="edit-field"><label>Período</label><input id="e-exp${i}-period" type="text" value="${document.getElementById('exp'+i+'-period').textContent}"></div>
+        <div class="edit-field"><label>Descrição</label><textarea id="e-exp${i}-desc" rows="2">${document.getElementById('exp'+i+'-desc').textContent}</textarea></div>
+      </div>`;
+    }
+  } else if (section === 'certificados') {
+    const grid = document.getElementById('cert-edit-grid');
+    grid.innerHTML = '';
+    for (let i = 1; i <= 10; i++) {
+      grid.innerHTML += `<div class="sub-block">
+        <div class="sub-block-label">Certificado ${i}</div>
+        <div class="edit-field"><label>Nome</label><input id="e-cert${i}" type="text" value="${document.getElementById('cert'+i).textContent}"></div>
+        <div class="edit-field"><label>Organização</label><input id="e-cert${i}-org" type="text" value="${document.getElementById('cert'+i+'-org').textContent}"></div>
+      </div>`;
+    }
+  } else if (section === 'linguas') {
+    document.getElementById('e-lang1').value = document.getElementById('lang1').textContent;
+    document.getElementById('e-lang1-level').value = document.getElementById('lang1-level').textContent;
+    document.getElementById('e-lang1-pct').value = parseInt(document.getElementById('lang1-bar').style.width) || 100;
+    document.getElementById('e-lang2').value = document.getElementById('lang2').textContent;
+    document.getElementById('e-lang2-level').value = document.getElementById('lang2-level').textContent;
+    document.getElementById('e-lang2-pct').value = parseInt(document.getElementById('lang2-bar').style.width) || 60;
+  } else if (section === 'projetos') {
+    const b = document.getElementById('proj-edit-blocks');
+    b.innerHTML = '';
+    const labels = ['Disciplina','Superare','Destaque'];
+    for (let i = 1; i <= 3; i++) {
+      b.innerHTML += `<div class="sub-block">
+        <div class="sub-block-label">Projeto ${i} — ${labels[i-1]}</div>
+        <div class="edit-field"><label>Título</label><input id="e-proj${i}-title" type="text" value="${document.getElementById('proj'+i+'-title').textContent}"></div>
+        <div class="edit-field"><label>Descrição</label><textarea id="e-proj${i}-desc" rows="2">${document.getElementById('proj'+i+'-desc').textContent}</textarea></div>
+      </div>`;
+    }
+  } else if (section === 'contato') {
+    document.getElementById('e-tel').value = document.getElementById('contato-tel').textContent;
+    document.getElementById('e-email').value = document.getElementById('contato-email').textContent;
+    document.getElementById('e-insta').value = document.getElementById('contato-insta').textContent;
+  }
 }
 
 function closeEdit(section) {
-  document.getElementById('edit-' + section).classList.remove('open');
+  document.getElementById('edit-' + section).classList.remove('open');
 }
 
 // ── SAVE FUNCTIONS (aplica ao vivo na página)
 function saveHero() {
-  document.getElementById('hero-subtitle').textContent = document.getElementById('e-hero-sub').value;
-  document.getElementById('hero-desc').textContent = document.getElementById('e-hero-desc').value;
-  closeEdit('hero'); notify('Página Inicial atualizada!');
+  document.getElementById('hero-subtitle').textContent = document.getElementById('e-hero-sub').value;
+  document.getElementById('hero-desc').textContent = document.getElementById('e-hero-desc').value;
+  closeEdit('hero'); notify('Página Inicial atualizada!');
 }
 function saveBio() {
-  document.getElementById('sobre-bio').textContent = document.getElementById('e-bio').value;
-  document.getElementById('sobre-quote').textContent = '\u201c' + document.getElementById('e-quote').value + '\u201d';
-  closeEdit('bio'); notify('Sobre Mim atualizado!');
+  document.getElementById('sobre-bio').textContent = document.getElementById('e-bio').value;
+  document.getElementById('sobre-quote').textContent = '\u201c' + document.getElementById('e-quote').value + '\u201d';
+  closeEdit('bio'); notify('Sobre Mim atualizado!');
 }
 function saveFormacao() {
-  document.getElementById('form1-title').textContent = document.getElementById('e-form-title').value;
-  document.getElementById('form1-inst').textContent = document.getElementById('e-form-inst').value;
-  document.getElementById('form1-period').textContent = document.getElementById('e-form-period').value;
-  closeEdit('formacao'); notify('Formação atualizada!');
+  document.getElementById('form1-title').textContent = document.getElementById('e-form-title').value;
+  document.getElementById('form1-inst').textContent = document.getElementById('e-form-inst').value;
+  document.getElementById('form1-period').textContent = document.getElementById('e-form-period').value;
+  closeEdit('formacao'); notify('Formação atualizada!');
 }
 function saveExp() {
-  for (let i = 1; i <= 4; i++) {
-    document.getElementById('exp'+i+'-title').textContent = document.getElementById('e-exp'+i+'-title').value;
-    document.getElementById('exp'+i+'-place').textContent = document.getElementById('e-exp'+i+'-place').value;
-    document.getElementById('exp'+i+'-period').textContent = document.getElementById('e-exp'+i+'-period').value;
-    document.getElementById('exp'+i+'-desc').textContent = document.getElementById('e-exp'+i+'-desc').value;
-  }
-  closeEdit('experiencias'); notify('Experiências atualizadas!');
+  for (let i = 1; i <= 4; i++) {
+    document.getElementById('exp'+i+'-title').textContent = document.getElementById('e-exp'+i+'-title').value;
+    document.getElementById('exp'+i+'-place').textContent = document.getElementById('e-exp'+i+'-place').value;
+    document.getElementById('exp'+i+'-period').textContent = document.getElementById('e-exp'+i+'-period').value;
+    document.getElementById('exp'+i+'-desc').textContent = document.getElementById('e-exp'+i+'-desc').value;
+  }
+  closeEdit('experiencias'); notify('Experiências atualizadas!');
 }
 function saveCerts() {
-  for (let i = 1; i <= 10; i++) {
-    document.getElementById('cert'+i).textContent = document.getElementById('e-cert'+i).value;
-    document.getElementById('cert'+i+'-org').textContent = document.getElementById('e-cert'+i+'-org').value;
-  }
-  closeEdit('certificados'); notify('Certificados atualizados!');
+  for (let i = 1; i <= 10; i++) {
+    document.getElementById('cert'+i).textContent = document.getElementById('e-cert'+i).value;
+    document.getElementById('cert'+i+'-org').textContent = document.getElementById('e-cert'+i+'-org').value;
+  }
+  closeEdit('certificados'); notify('Certificados atualizados!');
 }
 function saveLangs() {
-  document.getElementById('lang1').textContent = document.getElementById('e-lang1').value;
-  document.getElementById('lang1-level').textContent = document.getElementById('e-lang1-level').value;
-  document.getElementById('lang1-bar').style.width = document.getElementById('e-lang1-pct').value + '%';
-  document.getElementById('lang2').textContent = document.getElementById('e-lang2').value;
-  document.getElementById('lang2-level').textContent = document.getElementById('e-lang2-level').value;
-  document.getElementById('lang2-bar').style.width = document.getElementById('e-lang2-pct').value + '%';
-  closeEdit('linguas'); notify('Línguas atualizadas!');
+  document.getElementById('lang1').textContent = document.getElementById('e-lang1').value;
+  document.getElementById('lang1-level').textContent = document.getElementById('e-lang1-level').value;
+  document.getElementById('lang1-bar').style.width = document.getElementById('e-lang1-pct').value + '%';
+  document.getElementById('lang2').textContent = document.getElementById('e-lang2').value;
+  document.getElementById('lang2-level').textContent = document.getElementById('e-lang2-level').value;
+  document.getElementById('lang2-bar').style.width = document.getElementById('e-lang2-pct').value + '%';
+  closeEdit('linguas'); notify('Línguas atualizadas!');
 }
 function saveProjs() {
-  for (let i = 1; i <= 3; i++) {
-    document.getElementById('proj'+i+'-title').textContent = document.getElementById('e-proj'+i+'-title').value;
-    document.getElementById('proj'+i+'-desc').textContent = document.getElementById('e-proj'+i+'-desc').value;
-  }
-  closeEdit('projetos'); notify('Projetos atualizados!');
+  for (let i = 1; i <= 3; i++) {
+    document.getElementById('proj'+i+'-title').textContent = document.getElementById('e-proj'+i+'-title').value;
+    document.getElementById('proj'+i+'-desc').textContent = document.getElementById('e-proj'+i+'-desc').value;
+  }
+  closeEdit('projetos'); notify('Projetos atualizados!');
 }
 function saveContato() {
-  const tel = document.getElementById('e-tel').value;
-  const email = document.getElementById('e-email').value;
-  const insta = document.getElementById('e-insta').value;
-  document.getElementById('contato-tel').textContent = tel;
-  document.getElementById('contato-email').textContent = email;
-  document.getElementById('contato-insta').textContent = insta;
-  // Atualiza os hrefs também
-  document.getElementById('card-tel').href = 'tel:' + tel.replace(/\D/g,'');
-  document.getElementById('card-email').href = 'mailto:' + email;
-  document.getElementById('card-insta').href = 'https://instagram.com/' + insta.replace('@','');
-  closeEdit('contato'); notify('Contato atualizado!');
+  const tel = document.getElementById('e-tel').value;
+  const email = document.getElementById('e-email').value;
+  const insta = document.getElementById('e-insta').value;
+  document.getElementById('contato-tel').textContent = tel;
+  document.getElementById('contato-email').textContent = email;
+  document.getElementById('contato-insta').textContent = insta;
+  // Atualiza os hrefs também
+  document.getElementById('card-tel').href = 'tel:' + tel.replace(/\D/g,'');
+  document.getElementById('card-email').href = 'mailto:' + email;
+  document.getElementById('card-insta').href = 'https://instagram.com/' + insta.replace('@','');
+  closeEdit('contato'); notify('Contato atualizado!');
 }
 
 // ── SALVAR E BAIXAR HTML ATUALIZADO
 function saveAndDownload() {
-  // Esconde elementos de admin antes de capturar
-  const badge = document.getElementById('adminBadge');
-  const panel = document.getElementById('adminPanel');
-  const overlay = document.getElementById('adminOverlay');
-  const wasOpen = panel.classList.contains('open');
+  // Esconde elementos de admin antes de capturar
+  const badge = document.getElementById('adminBadge');
+  const panel = document.getElementById('adminPanel');
+  const overlay = document.getElementById('adminOverlay');
+  const wasOpen = panel.classList.contains('open');
 
-  badge.classList.remove('open');
-  panel.classList.remove('open');
-  overlay.classList.remove('open');
-  document.body.style.overflow = '';
+  badge.classList.remove('open');
+  panel.classList.remove('open');
+  overlay.classList.remove('open');
+  document.body.style.overflow = '';
 
-  // Pequeno delay para o DOM refletir, então captura
-  setTimeout(() => {
-    const doctype = '<!DOCTYPE html>\n';
-    const htmlContent = doctype + document.documentElement.outerHTML;
-    
-    const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'portfolio.html';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+  // Pequeno delay para o DOM refletir, então captura
+  setTimeout(() => {
+    const doctype = '<!DOCTYPE html>\n';
+    const htmlContent = doctype + document.documentElement.outerHTML;
+    
+    const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'portfolio.html';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
 
-    // Restaura estado admin
-    badge.classList.add('open');
-    if (wasOpen) panel.classList.add('open');
+    // Restaura estado admin
+    badge.classList.add('open');
+    if (wasOpen) panel.classList.add('open');
 
-    notify('✓ HTML baixado com todas as alterações!');
-  }, 150);
+    notify('✓ HTML baixado com todas as alterações!');
+  }, 150);
 }
 
 // ── NOTIFICAÇÃO
 function notify(msg) {
-  const n = document.createElement('div');
-  n.style.cssText = 'position:fixed;bottom:30px;right:30px;background:#5E17EB;color:white;padding:12px 24px;border-radius:100px;font-size:0.82rem;font-weight:500;z-index:99999;box-shadow:0 8px 30px rgba(94,23,235,0.4);transition:opacity 0.3s;pointer-events:none;';
-  n.textContent = '✦ ' + msg;
-  document.body.appendChild(n);
-  setTimeout(() => { n.style.opacity = '0'; setTimeout(() => n.remove(), 350); }, 2600);
+  const n = document.createElement('div');
+  n.style.cssText = 'position:fixed;bottom:30px;right:30px;background:#5E17EB;color:white;padding:12px 24px;border-radius:100px;font-size:0.82rem;font-weight:500;z-index:99999;box-shadow:0 8px 30px rgba(94,23,235,0.4);transition:opacity 0.3s;pointer-events:none;';
+  n.textContent = '✦ ' + msg;
+  document.body.appendChild(n);
+  setTimeout(() => { n.style.opacity = '0'; setTimeout(() => n.remove(), 350); }, 2600);
 }
 </script>
 
