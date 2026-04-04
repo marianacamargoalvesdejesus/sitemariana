@@ -67,8 +67,6 @@
   .btn-secondary:hover { border-color: var(--violet); color: var(--violet); transform: translateY(-2px); }
   .hero-visual { position: relative; }
   .hero-photo-frame { position: relative; width: 100%; aspect-ratio: 3/4; border-radius: 40% 60% 55% 45%/45% 40% 60% 55%; overflow: hidden; background: var(--violet-muted); border: 3px solid rgba(94,23,235,0.12); }
-  .hero-photo-frame::before { content: ''; position: absolute; inset: -3px; border-radius: inherit; background: linear-gradient(135deg,rgba(94,23,235,0.3),transparent 50%,rgba(94,23,235,0.1)); z-index: 1; }
-  .hero-photo-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; color: var(--violet); font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1rem; text-align: center; padding: 20px; }
   .hero-photo-frame img { width: 100%; height: 100%; object-fit: cover; }
   .hero-deco-1 { position: absolute; top: -20px; right: -20px; width: 100px; height: 100px; border: 1.5px solid var(--violet); border-radius: 50%; opacity: 0.2; animation: spin 20s linear infinite; }
   .hero-deco-2 { position: absolute; bottom: -30px; left: -15px; width: 60px; height: 60px; background: var(--violet); border-radius: 50%; opacity: 0.08; }
@@ -93,7 +91,6 @@
   .sobre-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: start; }
   .sobre-photo { width: 100%; aspect-ratio: 4/5; border-radius: 4px 60px 4px 60px; overflow: hidden; background: var(--violet-muted); border: 2px solid var(--border); margin-bottom: 24px; position: relative; }
   .sobre-photo img { width: 100%; height: 100%; object-fit: cover; }
-  .sobre-photo-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; color: var(--violet); font-family: 'Cormorant Garamond', serif; font-style: italic; text-align: center; padding: 20px; }
   .sobre-quote { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-style: italic; line-height: 1.7; color: var(--violet-dark); border-left: 3px solid var(--violet); padding-left: 20px; margin-top: 16px; }
   .sobre-bio { font-size: 1rem; line-height: 1.9; color: var(--gray); margin-bottom: 50px; }
 
@@ -151,8 +148,6 @@
   .projeto-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; overflow: hidden; transition: all 0.3s; }
   .projeto-card:hover { border-color: rgba(94,23,235,0.5); transform: translateY(-4px); box-shadow: 0 20px 60px rgba(94,23,235,0.2); }
   .projeto-media { aspect-ratio: 16/9; background: rgba(94,23,235,0.1); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
-  .projeto-media-placeholder { display: flex; flex-direction: column; align-items: center; gap: 8px; color: rgba(255,255,255,0.3); font-size: 0.75rem; text-align: center; padding: 20px; }
-  .projeto-media-placeholder .big-icon { font-size: 2.5rem; opacity: 0.5; }
   .projeto-media img, .projeto-media video { width: 100%; height: 100%; object-fit: cover; }
   .projeto-info { padding: 24px; }
   .projeto-tag { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--violet); font-weight: 500; margin-bottom: 8px; background: rgba(94,23,235,0.12); padding: 3px 12px; border-radius: 100px; display: inline-block; }
@@ -172,32 +167,30 @@
 
   /* ── MEDIA ZONES ─────────────────────────────── */
   .media-zone { width: 100%; background: rgba(255,255,255,0.04); border: 1.5px dashed rgba(255,255,255,0.12); border-radius: 16px; aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; margin: 20px 0; position: relative; overflow: hidden; }
-  .media-zone-light { background: var(--violet-muted); border: 1.5px dashed rgba(94,23,235,0.2); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 20px 0; overflow: hidden; padding: 30px; text-align: center; }
   .media-placeholder { text-align: center; padding: 30px; color: rgba(255,255,255,0.25); }
-  .media-placeholder-light { text-align: center; padding: 30px; color: var(--violet); opacity: 0.6; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; }
   .media-placeholder .icon { font-size: 2.5rem; margin-bottom: 10px; }
   .media-placeholder p { font-size: 0.8rem; letter-spacing: 0.05em; }
 
   /* ── DISCIPLINAS ─────────────────────────────── */
   .disciplinas-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; margin-top: 40px; }
-  .disciplina-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; overflow: hidden; transition: all 0.3s; }
+  .disciplina-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; overflow: hidden; transition: all 0.3s; display: flex; flex-direction: column; }
   .disciplina-card:hover { border-color: rgba(94,23,235,0.5); box-shadow: 0 12px 40px rgba(94,23,235,0.15); }
   .disc-header { padding: 20px 24px; background: linear-gradient(135deg,rgba(94,23,235,0.15),transparent); border-bottom: 1px solid rgba(255,255,255,0.06); }
   .disc-header h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; color: white; margin-bottom: 4px; }
   .disc-header p { font-size: 0.75rem; color: rgba(255,255,255,0.4); }
-  .disc-body { padding: 20px 24px; }
-  .disc-media { aspect-ratio: 16/9; background: rgba(94,23,235,0.08); border-radius: 10px; margin-bottom: 16px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .disc-body { padding: 20px 24px; flex-grow: 1; }
+  .disc-media { aspect-ratio: 16/9; background: rgba(94,23,235,0.08); border-radius: 10px; margin-bottom: 16px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
   .disc-desc { font-size: 0.82rem; color: rgba(255,255,255,0.4); line-height: 1.7; }
 
   /* ── CARROSSEL / SLIDER ──────────────────────── */
   .slider-container { position: relative; width: 100%; height: 100%; overflow: hidden; }
-  .slider-track { display: flex; width: 100%; height: 100%; transition: transform 0.3s ease; }
-  .slide { flex: 0 0 100%; width: 100%; height: 100%; position: relative; display: flex; align-items: center; justify-content: center; background: rgba(94,23,235,0.05); }
+  .slider-track { display: flex; width: 100%; height: 100%; transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+  .slide { flex: 0 0 100%; width: 100%; height: 100%; position: relative; }
   .slide img { width: 100%; height: 100%; object-fit: cover; }
-  .slider-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.4); color: white; border: none; padding: 6px 10px; cursor: pointer; z-index: 10; font-size: 1rem; border-radius: 4px; transition: background 0.3s; }
-  .slider-btn:hover { background: rgba(94,23,235,0.8); }
-  .slider-btn.prev { left: 8px; }
-  .slider-btn.next { right: 8px; }
+  .slider-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; z-index: 10; font-size: 0.8rem; display: flex; align-items: center; justify-content: center; transition: all 0.2s; backdrop-filter: blur(4px); }
+  .slider-btn:hover { background: var(--violet); }
+  .slider-btn.prev { left: 10px; }
+  .slider-btn.next { right: 10px; }
 
   /* ── CONTATO ─────────────────────────────────── */
   #contato { background: var(--violet); }
@@ -229,62 +222,41 @@
   .footer-links a { font-size: 0.75rem; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
   .footer-links a:hover { color: var(--violet); }
 
-  /* ── ADMIN LOGIN MODAL ───────────────────────── */
-  .admin-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px); z-index: 9999; align-items: center; justify-content: center; }
+  /* ── ADMIN UI ────────────────────────────────── */
+  .admin-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(10px); z-index: 9999; align-items: center; justify-content: center; }
   .admin-overlay.open { display: flex; }
-  .admin-modal { background: white; border-radius: 24px; width: 90%; max-width: 440px; padding: 48px 40px; box-shadow: 0 40px 100px rgba(0,0,0,0.3); position: relative; }
-  .admin-modal h2 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 600; color: var(--black); margin-bottom: 6px; }
-  .admin-modal > p { font-size: 0.85rem; color: var(--gray-light); margin-bottom: 32px; }
-  .admin-field { margin-bottom: 16px; }
-  .admin-field label { display: block; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); font-weight: 500; margin-bottom: 8px; }
-  .admin-field input { width: 100%; padding: 13px 18px; border: 1.5px solid var(--border); border-radius: 12px; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; transition: border-color 0.2s; color: var(--black); }
-  .admin-field input:focus { outline: none; border-color: var(--violet); }
-  .admin-error { font-size: 0.8rem; color: #e53e3e; margin-bottom: 12px; display: none; }
-  .admin-close { position: absolute; top: 16px; right: 20px; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--gray-light); transition: color 0.2s; }
-  .admin-close:hover { color: var(--black); }
-
-  /* ── ADMIN BADGE ─────────────────────────────── */
-  .admin-logged { display: none; position: fixed; top: 80px; right: 20px; background: var(--violet); color: white; padding: 10px 20px; border-radius: 100px; font-size: 0.8rem; font-weight: 500; z-index: 9000; box-shadow: 0 4px 20px rgba(94,23,235,0.4); align-items: center; gap: 10px; }
+  .admin-modal { background: white; border-radius: 24px; width: 90%; max-width: 420px; padding: 40px; box-shadow: 0 30px 60px rgba(0,0,0,0.3); position: relative; }
+  .admin-close { position: absolute; top: 20px; right: 20px; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--gray-light); }
+  .admin-field { margin-bottom: 20px; }
+  .admin-field label { display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gray); margin-bottom: 8px; font-weight: 500; }
+  .admin-field input { width: 100%; padding: 12px 16px; border: 1.5px solid var(--border); border-radius: 12px; font-family: 'DM Sans', sans-serif; }
+  .admin-logged { display: none; position: fixed; top: 90px; right: 20px; background: var(--violet); color: white; padding: 10px 20px; border-radius: 100px; font-size: 0.75rem; font-weight: 600; z-index: 9000; box-shadow: 0 10px 30px rgba(94,23,235,0.3); align-items: center; gap: 12px; }
   .admin-logged.open { display: flex; }
-  .admin-logout { background: rgba(255,255,255,0.2); border: none; border-radius: 100px; color: white; font-size: 0.72rem; padding: 4px 10px; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: background 0.2s; }
-  .admin-logout:hover { background: rgba(255,255,255,0.35); }
-
-  /* ── ADMIN PANEL ─────────────────────────────── */
-  .admin-panel { display: none; position: fixed; inset: 0; background: var(--black); z-index: 8000; overflow-y: auto; }
+  .admin-logout { background: rgba(255,255,255,0.2); border: none; padding: 4px 12px; border-radius: 100px; color: white; cursor: pointer; font-size: 0.7rem; }
+  
+  .admin-panel { display: none; position: fixed; inset: 0; background: var(--black); z-index: 8000; overflow-y: auto; padding: 80px 5%; }
   .admin-panel.open { display: block; }
-  .admin-panel-inner { max-width: 960px; margin: 0 auto; padding: 80px 5%; }
-  .admin-panel-title { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 300; color: white; margin-bottom: 8px; }
-  .admin-panel-title em { color: var(--violet); font-style: italic; }
-  .admin-panel-sub { color: rgba(255,255,255,0.4); font-size: 0.9rem; margin-bottom: 16px; }
-  .admin-save-all-bar { background: rgba(94,23,235,0.12); border: 1px solid rgba(94,23,235,0.3); border-radius: 14px; padding: 16px 22px; margin-bottom: 40px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
-  .admin-save-all-bar p { font-size: 0.82rem; color: rgba(255,255,255,0.6); }
-  .btn-save-all { padding: 11px 28px; background: var(--violet); color: white; border: none; border-radius: 100px; font-family: 'DM Sans', sans-serif; font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: all 0.25s; display: flex; align-items: center; gap: 8px; }
-  .btn-save-all:hover { background: var(--violet-dark); }
-  .admin-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; }
-  .admin-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 28px; transition: all 0.25s; cursor: pointer; }
-  .admin-card:hover { border-color: rgba(94,23,235,0.5); background: rgba(94,23,235,0.06); }
-  .admin-card-icon { font-size: 2rem; margin-bottom: 14px; }
-  .admin-card h3 { font-size: 1rem; font-weight: 500; color: white; margin-bottom: 6px; }
-  .admin-card p { font-size: 0.8rem; color: rgba(255,255,255,0.3); }
-  .admin-section-edit { display: none; margin-top: 30px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 28px; }
+  .admin-panel-inner { max-width: 1000px; margin: 0 auto; }
+  .admin-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 24px; margin-bottom: 16px; cursor: pointer; transition: all 0.2s; }
+  .admin-card:hover { background: rgba(255,255,255,0.06); border-color: var(--violet); }
+  .admin-section-edit { display: none; margin-top: 30px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 20px; padding: 30px; }
   .admin-section-edit.open { display: block; }
-  .edit-section-title { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 400; color: white; margin-bottom: 20px; }
-  .edit-field { margin-bottom: 16px; }
-  .edit-field label { display: block; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 8px; }
-  .edit-field input, .edit-field textarea { width: 100%; padding: 12px 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: white; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; }
-  .edit-field input:focus, .edit-field textarea:focus { outline: none; border-color: var(--violet); background: rgba(255,255,255,0.08); }
+  .m-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; margin: 20px 0; }
+  .mslot { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 15px; text-align: center; }
+  .mslot-prev { width: 100%; aspect-ratio: 16/9; background: #000; border-radius: 8px; margin-bottom: 10px; overflow: hidden; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; color: rgba(255,255,255,0.3); }
+  .mslot-prev img { width: 100%; height: 100%; object-fit: cover; }
+  .mslot input { display: none; }
+  .mslot label { display: inline-block; padding: 6px 12px; background: var(--violet); color: white; border-radius: 6px; font-size: 0.7rem; cursor: pointer; }
+  .btn-remove { background: #e53e3e; margin-top: 5px; }
 
   @media (max-width: 992px) {
     .hero-content, .sobre-grid, .contato-grid { grid-template-columns: 1fr; gap: 40px; }
     .hero-visual { order: -1; max-width: 500px; margin: 0 auto; }
     .projetos-grid, .disciplinas-grid { grid-template-columns: 1fr 1fr; }
-    .admin-grid { grid-template-columns: 1fr; }
   }
   @media (max-width: 600px) {
     .nav-links { display: none; }
     .projetos-grid, .disciplinas-grid { grid-template-columns: 1fr; }
-    .hero-cta { flex-direction: column; }
-    .stat-pill { padding: 8px 14px; }
   }
 </style>
 </head>
@@ -298,7 +270,7 @@
     <li><a href="#projetos">Trabalho</a></li>
     <li><a href="#contato">Contato</a></li>
   </ul>
-  <button class="nav-admin-btn" onclick="openAdmin()">Acesso Restrito</button>
+  <button class="nav-admin-btn" onclick="openAdmin()">Admin</button>
 </nav>
 
 <div id="admin-badge" class="admin-logged">
@@ -314,7 +286,7 @@
       <div class="hero-tag">Pedagogia & Educação</div>
       <h1 class="hero-name" id="txt-hero-nome">Educar com <em>Propósito</em> e Afeto.</h1>
       <p class="hero-subtitle" id="txt-hero-sub">Pedagoga apaixonada por transformar vidas através do conhecimento.</p>
-      <p class="hero-desc" id="txt-hero-desc">Desenvolvo estratégias pedagógicas personalizadas, focadas no desenvolvimento integral de crianças e jovens, unindo técnica e empatia no processo de aprendizagem.</p>
+      <p class="hero-desc" id="txt-hero-desc">Desenvolvo estratégias pedagógicas personalizadas, focadas no desenvolvimento integral de crianças e jovens.</p>
       <div class="hero-cta">
         <a href="#contato" class="btn-primary">Vamos conversar? ➔</a>
         <a href="#sobre" class="btn-secondary">Minha trajetória</a>
@@ -322,22 +294,11 @@
     </div>
     <div class="hero-visual">
       <div class="hero-photo-frame">
-        <div id="mz-hero" class="hero-photo-placeholder">
-          <div class="icon">🖼️</div>
-          <p>Sua foto principal aqui</p>
-        </div>
+        <div id="prev-hero" class="media-placeholder" style="height:100%;"><div class="icon">🖼️</div></div>
       </div>
-      <div class="hero-deco-1"></div>
-      <div class="hero-deco-2"></div>
       <div class="hero-stats">
-        <div class="stat-pill">
-          <span class="num">08+</span>
-          <span class="label">Anos de Exp.</span>
-        </div>
-        <div class="stat-pill">
-          <span class="num">500+</span>
-          <span class="label">Alunos</span>
-        </div>
+        <div class="stat-pill"><span class="num">08+</span><span class="label">Anos Exp.</span></div>
+        <div class="stat-pill"><span class="num">500+</span><span class="label">Alunos</span></div>
       </div>
     </div>
   </div>
@@ -348,71 +309,23 @@
     <div class="sobre-grid">
       <div class="sobre-media">
         <div class="sobre-photo">
-          <div id="mz-sobre-foto" class="sobre-photo-placeholder">
-            <div class="icon">🖼️</div>
-            <p>Foto Perfil</p>
-          </div>
+          <div id="prev-sobre-foto" class="media-placeholder" style="height:100%;"><div class="icon">🖼️</div></div>
         </div>
-        <p class="sobre-quote" id="txt-sobre-frase">"Ensinar não é transferir conhecimento, mas criar as possibilidades para a sua própria produção ou a sua construção."</p>
+        <p class="sobre-quote" id="txt-sobre-frase">"Ensinar não é transferir conhecimento, mas criar as possibilidades para a sua própria produção."</p>
       </div>
       <div class="sobre-content">
         <span class="section-tag">Sobre mim</span>
         <h2 class="section-title">Construindo caminhos para o <em>aprendizado</em>.</h2>
         <div class="divider"></div>
         <div class="sobre-bio">
-          <p id="txt-sobre-bio">Sou graduada em Pedagogia, com especialização em Psicopedagogia. Acredito que cada aluno é único e possui um tempo próprio de florescer. Minha missão é identificar essas potências e fornecer as ferramentas necessárias para que o conhecimento se torne algo significativo e prazeroso.</p>
+          <p id="txt-sobre-bio">Sou graduada em Pedagogia com especialização em Psicopedagogia. Minha missão é identificar potências e fornecer as ferramentas necessárias para que o conhecimento se torne significativo.</p>
         </div>
 
         <div class="accordion">
           <div class="accordion-section">
-            <div class="accordion-header active" onclick="toggleAccordion(this)">
-              FORMAÇÃO ACADÊMICA <span class="accordion-icon">+</span>
-            </div>
+            <div class="accordion-header active" onclick="toggleAccordion(this)">FORMAÇÃO <span class="accordion-icon">+</span></div>
             <div class="accordion-body open">
-              <div class="formacao-item">
-                <div class="formacao-icon">🎓</div>
-                <div class="formacao-info">
-                  <h4 id="txt-form1-tit">Licenciatura em Pedagogia</h4>
-                  <p id="txt-form1-sub">Universidade de Educação e Artes</p>
-                  <span class="period">2012 - 2016</span>
-                </div>
-              </div>
-              <div class="formacao-item">
-                <div class="formacao-icon">✨</div>
-                <div class="formacao-info">
-                  <h4 id="txt-form2-tit">Pós-Graduação em Psicopedagogia</h4>
-                  <p id="txt-form2-sub">Centro de Excelência Educacional</p>
-                  <span class="period">2017 - 2018</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="accordion-section">
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-              EXPERIÊNCIA PROFISSIONAL <span class="accordion-icon">+</span>
-            </div>
-            <div class="accordion-body">
-              <div class="exp-timeline">
-                <div class="exp-item">
-                  <div class="exp-dot">01</div>
-                  <div class="exp-content">
-                    <h4 id="txt-exp1-tit">Coordenadora Pedagógica</h4>
-                    <p class="place" id="txt-exp1-sub">Colégio Horizonte Azul</p>
-                    <span class="period">2020 - Atual</span>
-                    <p id="txt-exp1-desc">Liderança de equipe docente, desenvolvimento de currículo inovador e acompanhamento direto do progresso dos alunos.</p>
-                  </div>
-                </div>
-                <div class="exp-item">
-                  <div class="exp-dot">02</div>
-                  <div class="exp-content">
-                    <h4 id="txt-exp2-tit">Professora de Ensino Fundamental</h4>
-                    <p class="place" id="txt-exp2-sub">Escola Montessori Jardim</p>
-                    <span class="period">2016 - 2020</span>
-                    <p id="txt-exp2-desc">Aplicação de metodologias ativas e criação de projetos interdisciplinares focados na autonomia do estudante.</p>
-                  </div>
-                </div>
-              </div>
+              <div class="formacao-item"><div class="formacao-icon">🎓</div><div class="formacao-info"><h4 id="txt-f1-t">Pedagogia</h4><p id="txt-f1-s">UniEducação</p><span class="period">2012-2016</span></div></div>
             </div>
           </div>
         </div>
@@ -424,54 +337,24 @@
 <section id="projetos">
   <div class="section-inner">
     <span class="section-tag">Destaques</span>
-    <h2 class="section-title">Meu <em>Trabalho</em> Pedagógico</h2>
-    <p class="section-desc">Uma visão sobre os projetos, materiais e espaços que desenvolvo para potencializar a educação.</p>
-
+    <h2 class="section-title">Meu <em>Trabalho</em></h2>
     <div class="projetos-nav">
-      <button class="proj-tab active">Principais Projetos</button>
+      <button class="proj-tab active">Projetos</button>
       <button class="proj-tab" onclick="openPage('page-disciplinas')">Disciplinas</button>
       <button class="proj-tab" onclick="openPage('page-superare')">Espaço Superare</button>
     </div>
-
     <div class="projetos-grid">
       <div class="projeto-card">
-        <div class="projeto-media">
-          <div id="mz-proj1" class="projeto-media-placeholder">
-            <div class="big-icon">📚</div>
-            <p>Foto/Vídeo do Projeto</p>
-          </div>
-        </div>
-        <div class="projeto-info">
-          <span class="projeto-tag">Inovação</span>
-          <h3 id="txt-proj1-tit">Leitura em Movimento</h3>
-          <p id="txt-proj1-desc">Projeto que incentiva o hábito da leitura através de dinâmicas lúdicas e interativas fora da sala de aula.</p>
-        </div>
+        <div class="projeto-media"><div id="prev-proj1" class="media-placeholder"><div class="icon">📚</div></div></div>
+        <div class="projeto-info"><h3 id="txt-p1-t">Leitura em Movimento</h3><p id="txt-p1-d">Projeto de incentivo ao hábito da leitura.</p></div>
       </div>
       <div class="projeto-card">
-        <div class="projeto-media">
-          <div id="mz-proj2" class="projeto-media-placeholder">
-            <div class="big-icon">🧩</div>
-            <p>Foto/Vídeo do Projeto</p>
-          </div>
-        </div>
-        <div class="projeto-info">
-          <span class="projeto-tag">Inclusão</span>
-          <h3 id="txt-proj2-tit">Gamificação no Aprendizado</h3>
-          <p id="txt-proj2-desc">Utilização de elementos de jogos para facilitar a compreensão de conceitos complexos de lógica e matemática.</p>
-        </div>
+        <div class="projeto-media"><div id="prev-proj2" class="media-placeholder"><div class="icon">🧩</div></div></div>
+        <div class="projeto-info"><h3 id="txt-p2-t">Gamificação</h3><p id="txt-p2-d">Uso de jogos no aprendizado.</p></div>
       </div>
       <div class="projeto-card">
-        <div class="projeto-media">
-          <div id="mz-proj3" class="projeto-media-placeholder">
-            <div class="big-icon">🎨</div>
-            <p>Foto/Vídeo do Projeto</p>
-          </div>
-        </div>
-        <div class="projeto-info">
-          <span class="projeto-tag">Criatividade</span>
-          <h3 id="txt-proj3-tit">Artes e Emoções</h3>
-          <p id="txt-proj3-desc">Workshop focado na expressão de sentimentos através de diferentes linguagens artísticas para crianças.</p>
-        </div>
+        <div class="projeto-media"><div id="prev-proj3" class="media-placeholder"><div class="icon">🎨</div></div></div>
+        <div class="projeto-info"><h3 id="txt-p3-t">Artes e Emoções</h3><p id="txt-p3-d">Expressão através da arte.</p></div>
       </div>
     </div>
   </div>
@@ -480,145 +363,90 @@
 <div id="page-disciplinas" class="page-overlay">
   <div class="page-inner">
     <button class="page-back" onclick="closePage('page-disciplinas')">← Voltar</button>
-    <div class="page-header">
-      <h1 class="page-title">Grade de <em>Disciplinas</em></h1>
-      <p class="page-subtitle">Conteúdos e áreas de atuação onde desenvolvo materiais e leciono.</p>
-    </div>
-
-    <div class="media-zone">
-        <div id="mz-disc-banner" class="media-placeholder">
-          <div class="icon">🎬</div>
-          <p>Vídeo ou Banner de Introdução</p>
-        </div>
-    </div>
-
+    <h1 class="page-title">Grade de <em>Disciplinas</em></h1>
+    <div class="media-zone"><div id="prev-disc-banner" class="media-placeholder"><div class="icon">🎬</div></div></div>
     <div class="disciplinas-grid">
       <script>
-        const discs = [
-          {id: 1, tit: 'Alfabetização e Letramento', sub: 'Fundamental I', d: 'Foco na construção da escrita e leitura funcional de forma lúdica.'},
-          {id: 2, tit: 'Matemática Criativa', sub: 'Raciocínio Lógico', d: 'Uso de materiais manipuláveis para concretizar o raciocínio matemático.'},
-          {id: 3, tit: 'Educação Socioemocional', sub: 'Desenvolvimento Humano', d: 'Trabalho com autoconhecimento, empatia e resolução de conflitos.'},
-          {id: 4, tit: 'Literatura Infanto-Juvenil', sub: 'Linguagens', d: 'Exploração de obras clássicas e contemporâneas para formação crítica.'},
-          {id: 5, tit: 'Metodologias Ativas', sub: 'Formação Docente', d: 'Treinamento para professores sobre PBL e Design Thinking na educação.'},
-          {id: 6, tit: 'Educação Inclusiva', sub: 'Apoio Especializado', d: 'Adaptação curricular e estratégias para alunos com necessidades específicas.'},
-          {id: 7, tit: 'Psicomotricidade', sub: 'Corpo e Movimento', d: 'Atividades que integram funções motoras e psíquicas na infância.'},
-          {id: 8, tit: 'Tecnologia Educacional', sub: 'Ferramentas Digitais', d: 'Implementação de recursos digitais que potencializam o ensino.'},
-        ];
-        document.write(discs.map(d => `
-          <div class="disciplina-card">
-            <div class="disc-header">
-              <h3 id="txt-disc${d.id}-tit">${d.tit}</h3>
-              <p id="txt-disc${d.id}-sub">${d.sub}</p>
-            </div>
-            <div class="disc-body">
-              <div class="disc-media">
-                 <div id="mz-disc${d.id}-gallery" class="slider-container">
-                    <div id="prev-disc${d.id}-gallery" class="slider-track">
-                       <div class="slide"><div id="prev-disc${d.id}-1" class="media-placeholder-light"><div class="icon">🖼️</div><p>Foto 1</p></div></div>
-                       <div class="slide"><div id="prev-disc${d.id}-2" class="media-placeholder-light"><div class="icon">🖼️</div><p>Foto 2</p></div></div>
-                       <div class="slide"><div id="prev-disc${d.id}-3" class="media-placeholder-light"><div class="icon">🖼️</div><p>Foto 3</p></div></div>
-                       <div class="slide"><div id="prev-disc${d.id}-4" class="media-placeholder-light"><div class="icon">🖼️</div><p>Foto 4</p></div></div>
+        for(let i=1; i<=8; i++){
+          document.write(`
+            <div class="disciplina-card">
+              <div class="disc-header"><h3 id="txt-disc${i}-t">Disciplina ${i}</h3><p id="txt-disc${i}-s">Subtítulo</p></div>
+              <div class="disc-body">
+                <div class="disc-media">
+                  <div id="mz-disc${i}-slider" class="slider-container">
+                    <div id="prev-disc${i}-track" class="slider-track">
+                      <div class="slide"><div id="prev-disc${i}-1" class="media-placeholder"><div class="icon">🖼️</div></div></div>
+                      <div class="slide"><div id="prev-disc${i}-2" class="media-placeholder"><div class="icon">🖼️</div></div></div>
+                      <div class="slide"><div id="prev-disc${i}-3" class="media-placeholder"><div class="icon">🖼️</div></div></div>
+                      <div class="slide"><div id="prev-disc${i}-4" class="media-placeholder"><div class="icon">🖼️</div></div></div>
                     </div>
-                    <button class="slider-btn prev" onclick="moveSlider('prev-disc${d.id}-gallery', -1)">❮</button>
-                    <button class="slider-btn next" onclick="moveSlider('prev-disc${d.id}-gallery', 1)">❯</button>
-                 </div>
+                    <button class="slider-btn prev" onclick="moveSlider('prev-disc${i}-track',-1)">❮</button>
+                    <button class="slider-btn next" onclick="moveSlider('prev-disc${i}-track',1)">❯</button>
+                  </div>
+                </div>
+                <p class="disc-desc" id="txt-disc${i}-d">Descrição da disciplina e metodologia aplicada.</p>
               </div>
-              <p class="disc-desc" id="txt-disc${d.id}-desc">${d.d}</p>
             </div>
-          </div>
-        `).join(''));
+          `);
+        }
       </script>
     </div>
-
-    <div class="media-zone" style="margin-top: 60px; height: 300px;">
-        <div id="mz-disc-extra" class="media-placeholder">
-          <div class="icon">🖼️</div>
-          <p>Área para Foto ou Mural de Trabalhos</p>
-        </div>
-    </div>
+    <div class="media-zone" style="height:300px; margin-top:40px;"><div id="prev-disc-extra" class="media-placeholder"><div class="icon">🖼️</div></div></div>
   </div>
 </div>
 
 <div id="page-superare" class="page-overlay">
   <div class="page-inner">
     <button class="page-back" onclick="closePage('page-superare')">← Voltar</button>
-    <div class="page-header">
-      <h1 class="page-title" id="txt-sup-titulo">Espaço <em>Superare</em></h1>
-      <p class="page-subtitle" id="txt-sup-sub">Um ambiente dedicado ao desenvolvimento, criatividade e aprendizado personalizado.</p>
-    </div>
+    <h1 class="page-title">Espaço <em>Superare</em></h1>
+    <p class="page-subtitle">Um ambiente dedicado ao desenvolvimento integral.</p>
 
-    <div class="media-zone" style="aspect-ratio: 21/9; margin-bottom: 40px;">
-        <div id="mz-sup-banner" class="media-placeholder">
-          <div class="icon">🖼️</div>
-          <p>Banner principal do Espaço (21:9)</p>
-        </div>
-    </div>
+    <div class="media-zone" style="aspect-ratio: 21/9;"><div id="prev-sup-banner" class="media-placeholder"><div class="icon">🖼️</div></div></div>
 
-    <div class="sobre-grid" style="grid-template-columns: 1fr 1fr; margin-bottom: 60px;">
-      <div class="media-zone" style="aspect-ratio: 4/5; margin: 0;">
-          <div id="mz-sup-gallery" class="slider-container">
-            <div id="prev-sup-gallery" class="slider-track">
-               </div>
-            <button class="slider-btn prev" onclick="moveSlider('prev-sup-gallery', -1)">❮</button>
-            <button class="slider-btn next" onclick="moveSlider('prev-sup-gallery', 1)">❯</button>
-          </div>
-      </div>
+    <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; margin: 60px 0; align-items: center;">
+      <div class="media-zone" style="margin:0; aspect-ratio: 16/9;"><div id="prev-sup-photo-extra" class="media-placeholder"><div class="icon">🖼️</div></div></div>
       <div>
-        <h2 style="font-family: 'Cormorant Garamond', serif; color: white; font-size: 2rem; margin-bottom: 20px;">O Conceito</h2>
-        <p style="color: rgba(255,255,255,0.5); font-size: 0.95rem; line-height: 1.8; margin-bottom: 24px;" id="txt-sup-conceito">
-          O Espaço Superare nasceu do desejo de criar um lugar onde cada aluno se sinta acolhido e desafiado a superar seus próprios limites. Projetado com carinho, o ambiente favorece a concentração sem abrir mão do lúdico.
-        </p>
-        <div class="media-zone" style="aspect-ratio: 16/9; margin-bottom: 20px;">
-            <div id="mz-sup-photo-extra" class="media-placeholder">
-              <div class="icon">🖼️</div>
-              <p>Foto extra do ambiente</p>
-            </div>
-        </div>
+        <h2 style="font-family:'Cormorant Garamond'; color:white; font-size:2rem; margin-bottom:20px;">O Conceito</h2>
+        <p id="txt-sup-conceito" style="color:rgba(255,255,255,0.5); line-height:1.8;">O Espaço Superare foi projetado para oferecer acolhimento e estímulo cognitivo.</p>
       </div>
     </div>
 
-    <h2 style="font-family: 'Cormorant Garamond', serif; color: white; font-size: 2rem; margin-bottom: 30px; text-align: center;">Nossos Cantinhos</h2>
+    <h2 style="font-family:'Cormorant Garamond'; color:white; font-size:2.2rem; text-align:center; margin-bottom:40px;">Nossos Cantinhos</h2>
     <div class="disciplinas-grid" style="grid-template-columns: repeat(4, 1fr);">
       
       <div class="disciplina-card">
-         <div class="disc-media" style="aspect-ratio: 4/5;">
-            <div id="prev-sup1-1" class="media-placeholder-light">
-              <div class="icon">🖼️</div>
-              <p>Foto Única (4:5)</p>
-            </div>
-         </div>
-         <div class="disc-header"><h3 id="txt-sup1-titulo">Ambiente Principal</h3></div>
+        <div class="disc-media" style="aspect-ratio: 4/5;">
+           <div id="prev-sup1-1" class="media-placeholder" style="width:100%;height:100%;"><div class="icon">🖼️</div></div>
+        </div>
+        <div class="disc-header"><h3 id="txt-sup1-t">Ambiente Principal</h3></div>
       </div>
 
       <div class="disciplina-card">
-         <div class="disc-media" style="aspect-ratio: 4/5;">
-            <div id="mz-sup2-gallery" class="slider-container">
-              <div id="prev-sup2-gallery" class="slider-track">
-                 <div class="slide"><div id="prev-sup2-1" class="media-placeholder-light"><div class="icon">🖼️</div><p>Foto 1</p></div></div>
-                 <div class="slide"><div id="prev-sup2-2" class="media-placeholder-light"><div class="icon">🖼️</div><p>Foto 2</p></div></div>
-                 <div class="slide"><div id="prev-sup2-3" class="media-placeholder-light"><div class="icon">🖼️</div><p>Foto 3</p></div></div>
-                 <div class="slide"><div id="prev-sup2-4" class="media-placeholder-light"><div class="icon">🖼️</div><p>Foto 4</p></div></div>
-                 <div class="slide"><div id="prev-sup2-5" class="media-placeholder-light"><div class="icon">🖼️</div><p>Foto 5</p></div></div>
-                 <div class="slide"><div id="prev-sup2-6" class="media-placeholder-light"><div class="icon">🖼️</div><p>Foto 6</p></div></div>
-                 <div class="slide"><div id="prev-sup2-7" class="media-placeholder-light"><div class="icon">🖼️</div><p>Foto 7</p></div></div>
-                 <div class="slide"><div id="prev-sup2-8" class="media-placeholder-light"><div class="icon">🖼️</div><p>Foto 8</p></div></div>
-              </div>
-              <button class="slider-btn prev" onclick="moveSlider('prev-sup2-gallery', -1)">❮</button>
-              <button class="slider-btn next" onclick="moveSlider('prev-sup2-gallery', 1)">❯</button>
+        <div class="disc-media" style="aspect-ratio: 4/5;">
+          <div id="mz-sup2-slider" class="slider-container">
+            <div id="prev-sup2-track" class="slider-track">
+              <script>
+                for(let j=1; j<=8; j++) {
+                  document.write(`<div class="slide"><div id="prev-sup2-${j}" class="media-placeholder" style="width:100%;height:100%;"><div class="icon">🖼️</div><p style="font-size:0.6rem;">Foto ${j}</p></div></div>`);
+                }
+              </script>
             </div>
-         </div>
-         <div class="disc-header"><h3 id="txt-sup2-titulo">Galeria de Atividades</h3></div>
+            <button class="slider-btn prev" onclick="moveSlider('prev-sup2-track',-1)">❮</button>
+            <button class="slider-btn next" onclick="moveSlider('prev-sup2-track',1)">❯</button>
+          </div>
+        </div>
+        <div class="disc-header"><h3 id="txt-sup2-t">Galeria de Atividades</h3></div>
       </div>
 
-      <div class="disciplina-card" style="grid-column: span 2; display: flex; flex-direction: column; background: rgba(94, 23, 235, 0.05);">
-         <div class="disc-header" style="background: linear-gradient(135deg,rgba(94,23,235,0.2),transparent); border-bottom: 1px solid rgba(255,255,255,0.1);">
-            <h3 id="txt-sup-aulas-titulo" style="font-size: 1.4rem;">Aulas Particulares</h3>
-         </div>
-         <div class="disc-body" style="flex-grow: 1; display: flex; align-items: center; padding: 30px;">
-            <p id="txt-sup-aulas-desc" style="font-size: 1rem; color: rgba(255,255,255,0.7); line-height: 1.8; font-style: italic;">
-               Aqui você pode descrever detalhadamente seu método de aulas particulares, como funciona o atendimento personalizado e quais são os grandes diferenciais oferecidos no Espaço Superare.
-            </p>
-         </div>
+      <div class="disciplina-card" style="grid-column: span 2; background: rgba(94, 23, 235, 0.05);">
+        <div class="disc-header">
+           <h3 id="txt-sup-aulas-titulo" style="font-size: 1.4rem;">Aulas Particulares</h3>
+        </div>
+        <div class="disc-body">
+           <p id="txt-sup-aulas-desc" style="font-size: 0.95rem; line-height: 1.8; color: rgba(255,255,255,0.6); font-style: italic;">
+              Descreva aqui seu trabalho com as aulas particulares, metodologias personalizadas e diferenciais do seu atendimento no Espaço Superare.
+           </p>
+        </div>
       </div>
 
     </div>
@@ -630,271 +458,151 @@
     <div class="contato-grid">
       <div class="contato-info">
         <span class="section-tag">Contato</span>
-        <h2 class="section-title">Vamos transformar a <em>educação</em> juntos?</h2>
-        <p class="section-desc">Estou disponível para novos projetos, palestras, mentorias e aulas particulares. Entre em contato e vamos conversar!</p>
-        
+        <h2 class="section-title">Vamos <em>Educar</em> Juntos?</h2>
         <div class="contato-cards">
-          <a href="mailto:contato@marianacamargo.com" class="contato-card">
-            <div class="contato-icon">📧</div>
-            <div>
-              <div class="contato-label">E-mail</div>
-              <div class="contato-value">mariana.superare@gmail.com</div>
-            </div>
-          </a>
-          <a href="https://wa.me/550000000000" target="_blank" class="contato-card">
-            <div class="contato-icon">📱</div>
-            <div>
-              <div class="contato-label">WhatsApp</div>
-              <div class="contato-value">(11) 98765-4321</div>
-            </div>
-          </a>
-          <div class="contato-card">
-            <div class="contato-icon">📍</div>
-            <div>
-              <div class="contato-label">Localização</div>
-              <div class="contato-value">São Paulo, SP - Atendimento Presencial e Online</div>
-            </div>
-          </div>
+          <div class="contato-card"><div class="contato-icon">📧</div><div><div class="contato-label">Email</div><div class="contato-value">mariana@exemplo.com</div></div></div>
         </div>
       </div>
-
       <div class="contato-form-area">
-        <h3>Envie uma mensagem</h3>
-        <form onsubmit="event.preventDefault(); alert('Mensagem enviada! (Simulação)')">
-          <div class="form-group">
-            <input type="text" placeholder="Seu Nome Completo" required>
-          </div>
-          <div class="form-group">
-            <input type="email" placeholder="Seu melhor e-mail" required>
-          </div>
-          <div class="form-group">
-            <textarea rows="5" placeholder="Como posso te ajudar?" required></textarea>
-          </div>
-          <button type="submit" class="btn-white">Enviar Mensagem</button>
-        </form>
+        <form onsubmit="event.preventDefault(); alert('Enviado!');"><input type="text" placeholder="Nome"><textarea placeholder="Mensagem"></textarea><button class="btn-white">Enviar</button></form>
       </div>
     </div>
   </div>
 </section>
 
 <footer>
-  <a href="#" class="footer-logo">Mariana <span>Camargo</span></a>
-  <p class="footer-copy">&copy; 2024 Mariana Camargo Pedagogia. Todos os direitos reservados.</p>
-  <div class="footer-links">
-    <a href="#">Instagram</a>
-    <a href="#">LinkedIn</a>
-    <a href="#">YouTube</a>
-  </div>
+  <div class="footer-logo">Mariana <span>Camargo</span></div>
+  <p class="footer-copy">© 2024 Mariana Camargo. Todos os direitos reservados.</p>
 </footer>
 
 <div id="admin-login" class="admin-overlay">
   <div class="admin-modal">
-    <button class="admin-close" onclick="closeAdmin()">×</button>
-    <h2>Acesso Restrito</h2>
-    <p>Área exclusiva para edição do portfólio.</p>
-    <div class="admin-field">
-      <label>E-mail</label>
-      <input type="email" id="adm-email" placeholder="admin@exemplo.com">
-    </div>
-    <div class="admin-field">
-      <label>Senha</label>
-      <input type="password" id="adm-pass" placeholder="••••••••">
-    </div>
-    <div id="adm-error" class="admin-error">Credenciais inválidas. Tente novamente.</div>
-    <button class="btn-primary" style="width:100%; justify-content:center; margin-top:10px;" onclick="tryLogin()">Entrar como Editor</button>
+    <button class="admin-close" onclick="closePage('admin-login')">×</button>
+    <h2 style="font-family:'Cormorant Garamond'; font-size:2rem; margin-bottom:20px;">Acesso Restrito</h2>
+    <div class="admin-field"><label>Email</label><input type="email" id="adm-email" value="admin@mariana.com"></div>
+    <div class="admin-field"><label>Senha</label><input type="password" id="adm-pass" value="1234"></div>
+    <button class="btn-primary" style="width:100%;" onclick="tryLogin()">Entrar</button>
   </div>
 </div>
 
 <div id="admin-panel" class="admin-panel">
   <div class="admin-panel-inner">
-    <h1 class="admin-panel-title">Painel de <em>Edição</em></h1>
-    <p class="admin-panel-sub">Gerencie fotos, textos e conteúdos em tempo real.</p>
-    
-    <div class="admin-save-all-bar">
-      <p>⚠️ As alterações só ficam salvas nesta sessão (simulado). Para persistir em um site real, seria necessário um banco de dados.</p>
-      <button class="btn-save-all" onclick="mCloseAdmin()">Concluir Edição</button>
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:40px;">
+      <h1 style="color:white; font-family:'Cormorant Garamond'; font-size:2.5rem;">Editor de <em>Conteúdo</em></h1>
+      <button class="btn-primary" onclick="closePage('admin-panel')">Concluir</button>
     </div>
-
-    <div class="admin-grid">
-       <div class="admin-card" onclick="mEdit('hero')"><div class="admin-card-icon">🏠</div><h3>Início (Hero)</h3><p>Título, descrição e foto principal.</p></div>
-       <div class="admin-card" onclick="mEdit('sobre')"><div class="admin-card-icon">👩‍🏫</div><h3>Sobre Mim</h3><p>Bio, formação e frase de impacto.</p></div>
-       <div class="admin-card" onclick="mEdit('projetos')"><div class="admin-card-icon">🏆</div><h3>Projetos</h3><p>Cards de destaque na home.</p></div>
-       <div class="admin-card" onclick="mEdit('superare')"><div class="admin-card-icon">🌟</div><h3>Espaço Superare</h3><p>Fotos e textos da página especial.</p></div>
-    </div>
-
+    <div class="admin-card" onclick="mEdit('hero')">🏠 Início</div>
+    <div class="admin-card" onclick="mEdit('sobre')">👩‍🏫 Sobre Mim</div>
+    <div class="admin-card" onclick="mEdit('projetos')">🏆 Projetos Home</div>
+    <div class="admin-card" onclick="mEdit('disciplinas')">📚 Disciplinas</div>
+    <div class="admin-card" onclick="mEdit('superare')">✨ Espaço Superare</div>
     <div id="m-edit-area" class="admin-section-edit"></div>
   </div>
 </div>
 
 <script>
-/* ── LÓGICA DE NAVEGAÇÃO ── */
-window.addEventListener('scroll', () => {
-  const nav = document.getElementById('navbar');
-  if (window.scrollY > 50) nav.classList.add('scrolled');
-  else nav.classList.remove('scrolled');
-});
+  let _mp = {}; 
+  let _txt = {};
+  let _logged = false;
 
-function openPage(id) { document.getElementById(id).classList.add('open'); document.body.style.overflow = 'hidden'; }
-function closePage(id) { document.getElementById(id).classList.remove('open'); document.body.style.overflow = ''; }
+  function openPage(id) { document.getElementById(id).classList.add('open'); document.body.style.overflow='hidden'; }
+  function closePage(id) { document.getElementById(id).classList.remove('open'); document.body.style.overflow=''; }
 
-function toggleAccordion(header) {
-  const body = header.nextElementSibling;
-  const isActive = header.classList.contains('active');
-  document.querySelectorAll('.accordion-header').forEach(h => h.classList.remove('active'));
-  document.querySelectorAll('.accordion-body').forEach(b => b.classList.remove('open'));
-  if (!isActive) { header.classList.add('active'); body.classList.add('open'); }
-}
+  function toggleAccordion(h) {
+    const b = h.nextElementSibling;
+    const active = h.classList.contains('active');
+    document.querySelectorAll('.accordion-header').forEach(x=>x.classList.remove('active'));
+    document.querySelectorAll('.accordion-body').forEach(x=>x.classList.remove('open'));
+    if(!active){ h.classList.add('active'); b.classList.add('open'); }
+  }
 
-/* ── SLIDER / CARROSSEL ── */
-const sliderStates = {};
-function moveSlider(trackId, dir) {
-  const track = document.getElementById(trackId);
-  const slides = track.querySelectorAll('.slide');
-  if (!sliderStates[trackId]) sliderStates[trackId] = 0;
-  sliderStates[trackId] = (sliderStates[trackId] + dir + slides.length) % slides.length;
-  track.style.transform = `translateX(-${sliderStates[trackId] * 100}%)`;
-}
+  const sliders = {};
+  function moveSlider(id, dir) {
+    const track = document.getElementById(id);
+    const slides = track.querySelectorAll('.slide');
+    if(!sliders[id]) sliders[id] = 0;
+    sliders[id] = (sliders[id] + dir + slides.length) % slides.length;
+    track.style.transform = `translateX(-${sliders[id]*100}%)`;
+  }
 
-/* ── ADMIN CORE ── */
-let _logged = false;
-let _mp = {}; // Armazena dados de mídia (Base64 simulação)
-let _txt = {}; // Armazena textos personalizados
+  function openAdmin() { if(_logged) openPage('admin-panel'); else openPage('admin-login'); }
+  function tryLogin() { _logged=true; closePage('admin-login'); document.getElementById('admin-badge').classList.add('open'); openPage('admin-panel'); }
+  function logoutAdmin() { _logged=false; document.getElementById('admin-badge').classList.remove('open'); }
 
-function openAdmin() { if(_logged) openPanel(); else openPage('admin-login'); }
-function closeAdmin() { closePage('admin-login'); }
-function tryLogin() {
-  const e = document.getElementById('adm-email').value;
-  const p = document.getElementById('adm-pass').value;
-  if(e === 'admin@mariana.com' && p === 'pedagogia2024') {
-    _logged = true;
-    closeAdmin();
-    document.getElementById('admin-badge').classList.add('open');
-    openPanel();
-  } else { document.getElementById('adm-error').style.display = 'block'; }
-}
-function logoutAdmin() { _logged = false; document.getElementById('admin-badge').classList.remove('open'); mCloseAdmin(); }
-function openPanel() { openPage('admin-panel'); }
-function mCloseAdmin() { closePage('admin-panel'); mSyncTexts(); mSyncPreviews(); }
+  function mUpload(input, targetId, prevId) {
+    const file = input.files[0];
+    if(!file) return;
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      _mp[targetId] = e.target.result;
+      document.getElementById(prevId).innerHTML = `<img src="${e.target.result}">`;
+    };
+    reader.readAsDataURL(file);
+  }
 
-function mUpload(input, targetId, prevId, idx = null) {
-  const file = input.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = (e) => {
-    const data = e.target.result;
-    if (idx === null) {
-      _mp[targetId] = data;
-      const el = document.getElementById(prevId);
-      if (el) el.innerHTML = `<img src="${data}" style="width:100%;height:100%;object-fit:cover">`;
-    } else {
-      if (!Array.isArray(_mp[targetId])) _mp[targetId] = [];
-      _mp[targetId][idx] = data;
-      // Sincroniza o slide específico imediatamente no editor
-      const track = document.getElementById(prevId);
-      if (track) {
-         const slides = track.querySelectorAll('.slide');
-         if (slides[idx]) slides[idx].innerHTML = `<img src="${data}" style="width:100%;height:100%;object-fit:cover">`;
+  function mEdit(sec) {
+    const area = document.getElementById('m-edit-area');
+    area.classList.add('open');
+    let html = `<h2 style="color:white; margin-bottom:20px; font-family:'Cormorant Garamond';">${sec.toUpperCase()}</h2>`;
+    
+    if(sec === 'hero') {
+       html += `<div class="admin-field"><label>Título</label><input type="text" id="in-h-t"></div>`;
+       html += `<div class="m-grid"><div class="mslot"><div class="mslot-prev" id="prev-m-hero"></div><label>Upload<input type="file" onchange="mUpload(this,'mz-hero','prev-m-hero')"></label></div></div>`;
+    }
+
+    if(sec === 'superare') {
+       html += `<div class="admin-field"><label>Conceito</label><textarea id="in-sup-c" style="width:100%; height:80px;"></textarea></div>`;
+       html += `<h3 style="color:white; margin:20px 0;">Cantinho 1 (Foto Única)</h3>`;
+       html += `<div class="m-grid"><div class="mslot"><div class="mslot-prev" id="prev-m-sup1"></div><label>Upload<input type="file" onchange="mUpload(this,'mz-sup1-1','prev-m-sup1')"></label></div></div>`;
+       
+       html += `<h3 style="color:white; margin:20px 0;">Cantinho 2 (Slider - 8 fotos)</h3>`;
+       html += `<div class="m-grid">`;
+       for(let i=1; i<=8; i++) {
+         html += `<div class="mslot"><p style="color:white; font-size:0.6rem;">Foto ${i}</p><div class="mslot-prev" id="prev-m-sup2-${i}"></div><label>Upload<input type="file" onchange="mUpload(this,'mz-sup2-${i}','prev-m-sup2-${i}')"></label></div>`;
+       }
+       html += `</div>`;
+
+       html += `<h3 style="color:white; margin:20px 0;">Aulas Particulares</h3>`;
+       html += `<div class="admin-field"><label>Título</label><input type="text" id="in-sup-a-t"></div>`;
+       html += `<div class="admin-field"><label>Descrição das Aulas</label><textarea id="in-sup-a-d" style="width:100%; height:120px;"></textarea></div>`;
+    }
+
+    html += `<button class="btn-primary" onclick="mSave('${sec}')">Salvar</button>`;
+    area.innerHTML = html;
+  }
+
+  function mSave(sec) {
+    if(sec === 'superare') {
+       _txt['sup-conceito'] = document.getElementById('in-sup-c').value;
+       _txt['sup-aulas-titulo'] = document.getElementById('in-sup-a-t').value;
+       _txt['sup-aulas-desc'] = document.getElementById('in-sup-a-d').value;
+    }
+    mSync();
+    alert('Alterações aplicadas na visualização!');
+  }
+
+  function mSync() {
+    // Sincroniza Textos
+    for(let k in _txt) {
+      const el = document.getElementById('txt-'+k);
+      if(el) el.innerText = _txt[k];
+    }
+    // Sincroniza Imagens
+    const pairs = [['mz-hero','prev-hero'],['mz-sobre-foto','prev-sobre-foto'],['mz-sup1-1','prev-sup1-1']];
+    for(let i=1; i<=8; i++) pairs.push([`mz-sup2-${i}`, `prev-sup2-${i}`]);
+    
+    pairs.forEach(p => {
+      if(_mp[p[0]]) {
+        const el = document.getElementById(p[1]);
+        if(el) el.innerHTML = `<img src="${_mp[p[0]]}" style="width:100%; height:100%; object-fit:cover;">`;
       }
-    }
-  };
-  reader.readAsDataURL(file);
-}
-
-function mEdit(sec) {
-  const area = document.getElementById('m-edit-area');
-  area.classList.add('open');
-  let html = '';
-  const txts = _txt;
-
-  if (sec === 'hero') {
-    html = `
-      <div class="edit-section-title">Editar Home</div>
-      <div class="edit-field"><label>Título Principal</label><input type="text" id="in-hero-nome" value="${txts['hero-nome'] || 'Educar com Propósito e Afeto.'}"></div>
-      <div class="edit-field"><label>Subtítulo</label><input type="text" id="in-hero-sub" value="${txts['hero-sub'] || ''}"></div>
-      <div class="edit-field"><label>Descrição Curta</label><textarea id="in-hero-desc">${txts['hero-desc'] || ''}</textarea></div>
-      <div class="edit-field"><label>Foto Principal (3:4)</label><input type="file" onchange="mUpload(this,'mz-hero','mz-hero')"></div>
-    `;
-  } else if (sec === 'superare') {
-    html = `
-      <div class="edit-section-title">Espaço Superare</div>
-      <div class="admin-grid">
-        <div class="edit-field"><label>Título da Página</label><input type="text" id="in-sup-titulo" value="${txts['sup-titulo'] || 'Espaço Superare'}"></div>
-        <div class="edit-field"><label>Subtítulo</label><input type="text" id="in-sup-sub" value="${txts['sup-sub'] || ''}"></div>
-      </div>
-      <div class="edit-field"><label>Banner (21:9)</label><input type="file" onchange="mUpload(this,'mz-sup-banner','mz-sup-banner')"></div>
-      
-      <hr style="opacity:0.1;margin:20px 0">
-      <div class="edit-section-title">Cantinhos (Linha de Baixo)</div>
-      <div class="admin-grid">
-         <div class="edit-field"><label>Cantinho 1: Título</label><input type="text" id="in-sup1-titulo" value="${txts['sup1-titulo'] || 'Ambiente Principal'}"></div>
-         <div class="edit-field"><label>Cantinho 1: Foto Única (4:5)</label><input type="file" onchange="mUpload(this,'mz-sup1-1','prev-sup1-1')"></div>
-      </div>
-
-      <div class="edit-field"><label>Cantinho 2: Título (Slider)</label><input type="text" id="in-sup2-titulo" value="${txts['sup2-titulo'] || 'Galeria de Atividades'}"></div>
-      <div class="admin-grid">
-        ${[1,2,3,4,5,6,7,8].map(n => `
-          <div class="edit-field"><label>Slider - Foto ${n}</label><input type="file" onchange="mUpload(this,'mz-sup2-${n}','prev-sup2-${n}')"></div>
-        `).join('')}
-      </div>
-
-      <hr style="opacity:0.1;margin:20px 0">
-      <div class="edit-field"><label>Aulas Particulares - Título</label><input type="text" id="in-sup-aulas-titulo" value="${txts['sup-aulas-titulo'] || 'Aulas Particulares'}"></div>
-      <div class="edit-field"><label>Aulas Particulares - Descrição</label><textarea id="in-sup-aulas-desc" rows="5">${txts['sup-aulas-desc'] || ''}</textarea></div>
-    `;
+    });
   }
-  // Outras seções podem ser adicionadas aqui seguindo o padrão
-  
-  html += `<button class="btn-primary" onclick="mSave('${sec}')">Atualizar Seção</button>`;
-  area.innerHTML = html;
-}
 
-function mSave(sec) {
-  if (sec === 'hero') {
-    _txt['hero-nome'] = document.getElementById('in-hero-nome').value;
-    _txt['hero-sub'] = document.getElementById('in-hero-sub').value;
-    _txt['hero-desc'] = document.getElementById('in-hero-desc').value;
-  } else if (sec === 'superare') {
-    _txt['sup-titulo'] = document.getElementById('in-sup-titulo').value;
-    _txt['sup-sub'] = document.getElementById('in-sup-sub').value;
-    _txt['sup1-titulo'] = document.getElementById('in-sup1-titulo').value;
-    _txt['sup2-titulo'] = document.getElementById('in-sup2-titulo').value;
-    _txt['sup-aulas-titulo'] = document.getElementById('in-sup-aulas-titulo').value;
-    _txt['sup-aulas-desc'] = document.getElementById('in-sup-aulas-desc').value;
-  }
-  alert('Seção atualizada temporariamente!');
-}
-
-function mSyncTexts() {
-  Object.keys(_txt).forEach(k => {
-    const el = document.getElementById('txt-' + k);
-    if (el) el.innerHTML = _txt[k].replace(/\n/g, '<br>');
+  window.addEventListener('scroll', () => {
+    const n = document.getElementById('navbar');
+    if(window.scrollY > 50) n.classList.add('scrolled'); else n.classList.remove('scrolled');
   });
-}
-
-function mSyncPreviews() {
-  // Sincroniza mídias simples
-  const singlePairs = [
-    ['mz-hero','mz-hero'], ['mz-sobre-foto','mz-sobre-foto'],
-    ['mz-proj1','mz-proj1'], ['mz-proj2','mz-proj2'], ['mz-proj3','mz-proj3'],
-    ['mz-sup-banner','mz-sup-banner'], ['mz-sup-photo-extra','mz-sup-photo-extra'],
-    ['mz-sup1-1', 'prev-sup1-1']
-  ];
-  singlePairs.forEach(([midId, elId]) => {
-    if(_mp[midId]) {
-      const el = document.getElementById(elId);
-      if(el) el.innerHTML = `<img src="${_mp[midId]}" style="width:100%;height:100%;object-fit:cover">`;
-    }
-  });
-
-  // Sincroniza Sliders Individuais (Cantinho 2 com 8 fotos)
-  for(let j=1; j<=8; j++) {
-    if(_mp[`mz-sup2-${j}`]) {
-      const el = document.getElementById(`prev-sup2-${j}`);
-      if(el) el.innerHTML = `<img src="${_mp[`mz-sup2-${j}`]}" style="width:100%;height:100%;object-fit:cover">`;
-    }
-  }
-}
-
 </script>
 
 </body></html>
